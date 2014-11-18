@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>52906CE8-B76F-489F-B186-9C04EFE613EC</string>
+	<key>IDESourceControlProjectName</key>
+	<string>RePark</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>110F2C46-6E26-4804-BC97-5853A3F611F6</key>
+		<string>https://github.com/elad-Damari/RePark.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>RePark.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>110F2C46-6E26-4804-BC97-5853A3F611F6</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/elad-Damari/RePark.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>110F2C46-6E26-4804-BC97-5853A3F611F6</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>110F2C46-6E26-4804-BC97-5853A3F611F6</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ReParkGit</string>
+		</dict>
+	</array>
+</dict>
+</plist>
