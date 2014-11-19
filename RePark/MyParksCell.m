@@ -14,25 +14,29 @@
 - (void) configureCellWithMyPark: (Park *) park
 
 {
-    //check if ther are car details in park...
+
+    _pricePerHour.text = [NSString stringWithFormat:@"%@", park.pricePerHour];
     
-    //_carIdLabel.text = car.carID;
-    //_carNumberLabel.text = car.carNumber;
-    //_carTypeLabel.text   = car.carType;
+    _parkIdLabel.text  = [NSString stringWithFormat:@"%@", park.parkID];
     
-    _pricePerHour.text = park.pricePerHour;
+    NSString *taken = [NSString stringWithFormat:@"%@", park.isTakenNow];
     
-    _parkIdLabel.text  = park.parkID;
-    
-    if ([park.isTakenNow isEqualToString:@"0"])
+    if ([taken isEqualToString:@"1"])
     {
         _isTakenLabel.text = @"תפוס";
         _isTakenLabel.backgroundColor = [UIColor redColor];
+        
+
     }
     else
     {
         _isTakenLabel.text = @"פנוי";
         _isTakenLabel.backgroundColor = [UIColor greenColor];
+        
+        _carIdTitleLabel.text = @"";
+        _carNumberTitleLabel.text = @"";
+        _carTypeTitleLabel.text = @"";
+        
     }
     
     

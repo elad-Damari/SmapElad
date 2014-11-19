@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>carColorID</key>
+	<array>
+		<string></string>
+		<string>בורדו</string>
+		<string>אדום</string>
+		<string>כתום</string>
+		<string>צהוב</string>
+		<string>ירוק</string>
+		<string>ירוק בהיר</string>
+		<string>סגול</string>
+		<string>ורוד</string>
+		<string>לבן</string>
+		<string>כסף</string>
+		<string>אפור</string>
+		<string>זהב</string>
+		<string>כחול כהה</string>
+		<string>כחול</string>
+		<string>תכלת</string>
+		<string>שחור</string>
+	</array>
+	<key>parkGateID</key>
+	<array>
+		<string></string>
+		<string>אין</string>
+		<string>שלט</string>
+		<string>טלפון</string>
+		<string>שומר</string>
+	</array>
+	<key>parkTopID</key>
+	<array>
+		<string></string>
+		<string>מקורה</string>
+		<string>פתוחה</string>
+	</array>
+	<key>parkTypeID</key>
+	<array>
+		<string></string>
+		<string>מגורים</string>
+		<string>משרדים</string>
+		<string>חניון</string>
+	</array>
+	<key>carTypeID</key>
+	<array>
+		<string></string>
+		<string>MG</string>
+		<string>אבארט</string>
+		<string>אודי</string>
+		<string>אופל</string>
+		<string>אינפיניטי</string>
+		<string>איסוזו</string>
+		<string>אלפא רומיאו</string>
+		<string>BMW</string>
+		<string>ביואיק</string>
+		<string>ג&apos;יפ</string>
+		<string>גרייט וול</string>
+		<string>דודג&apos;</string>
+		<string>הונדה</string>
+		<string>וולוו</string>
+		<string>טויוטה</string>
+		<string>יגואר</string>
+		<string>יונדאי</string>
+		<string>לנד רובר</string>
+		<string>לנצ&apos;יה</string>
+		<string>לקסוס</string>
+		<string>מאזדה</string>
+		<string>מזראטי</string>
+		<string>מיני</string>
+		<string>מיצובישי</string>
+		<string>מרצדס</string>
+		<string>ניסאן</string>
+		<string>סאנגיונג</string>
+		<string>סוברו</string>
+		<string>סוזוקי</string>
+		<string>סיאט</string>
+		<string>סיטרואן</string>
+		<string>סמארט</string>
+		<string>סקודה</string>
+		<string>פולקסווגן</string>
+		<string>פורד</string>
+		<string>פורשה</string>
+		<string>פיאט</string>
+		<string>פיג&apos;ו</string>
+		<string>פרארי</string>
+		<string>קאדילק</string>
+		<string>קיה</string>
+		<string>קרייזלר</string>
+		<string>רנו</string>
+		<string>שברולט</string>
+	</array>
+</dict>
+</plist>

@@ -82,6 +82,9 @@
 		C736222D1A1A3B5A002A6B3A /* PXAlertView+Customization.m in Sources */ = {isa = PBXBuildFile; fileRef = C736222A1A1A3B5A002A6B3A /* PXAlertView+Customization.m */; };
 		C736222E1A1A3B5A002A6B3A /* PXAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = C736222C1A1A3B5A002A6B3A /* PXAlertView.m */; };
 		C760BB061A1B479800ABFBC1 /* MyParksCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C760BB051A1B479800ABFBC1 /* MyParksCell.m */; };
+		C77D64FD1A1CF3CC00C2CC46 /* initializeDataBase.plist in Resources */ = {isa = PBXBuildFile; fileRef = C77D64FC1A1CF3CC00C2CC46 /* initializeDataBase.plist */; };
+		C77D65011A1D028800C2CC46 /* MyParkDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = C77D64FF1A1D028800C2CC46 /* MyParkDetails.m */; };
+		C77D65021A1D028800C2CC46 /* MyParkDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = C77D65001A1D028800C2CC46 /* MyParkDetails.xib */; };
 		C792CC671A18FB3100C64062 /* ParkReservationSearchPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = C792CC651A18FB3100C64062 /* ParkReservationSearchPopup.xib */; };
 		C792CC681A18FB3100C64062 /* ParkReservationSearchPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = C792CC661A18FB3100C64062 /* ParkReservationSearchPopup.m */; };
 		C7D31EDC1A1AB87A00DFD4CD /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D31EDB1A1AB87A00DFD4CD /* Car.m */; };
@@ -251,6 +254,10 @@
 		C736222C1A1A3B5A002A6B3A /* PXAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXAlertView.m; sourceTree = "<group>"; };
 		C760BB041A1B479800ABFBC1 /* MyParksCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyParksCell.h; sourceTree = "<group>"; };
 		C760BB051A1B479800ABFBC1 /* MyParksCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyParksCell.m; sourceTree = "<group>"; };
+		C77D64FC1A1CF3CC00C2CC46 /* initializeDataBase.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = initializeDataBase.plist; sourceTree = "<group>"; };
+		C77D64FE1A1D028800C2CC46 /* MyParkDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyParkDetails.h; sourceTree = "<group>"; };
+		C77D64FF1A1D028800C2CC46 /* MyParkDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyParkDetails.m; sourceTree = "<group>"; };
+		C77D65001A1D028800C2CC46 /* MyParkDetails.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyParkDetails.xib; sourceTree = "<group>"; };
 		C792CC641A18FB3100C64062 /* ParkReservationSearchPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParkReservationSearchPopup.h; sourceTree = "<group>"; };
 		C792CC651A18FB3100C64062 /* ParkReservationSearchPopup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParkReservationSearchPopup.xib; sourceTree = "<group>"; };
 		C792CC661A18FB3100C64062 /* ParkReservationSearchPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParkReservationSearchPopup.m; sourceTree = "<group>"; };
@@ -352,10 +359,10 @@
 		5062B9E61A07780A00C9E99A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				50ACC7471A0FA4B9005E8AD6 /* Right Menu */,
-				50ACC7461A0FA49A005E8AD6 /* General */,
 				50ACC7451A0FA479005E8AD6 /* Top Menu */,
+				50ACC7471A0FA4B9005E8AD6 /* Right Menu */,
 				50ACC7441A0FA446005E8AD6 /* Opening */,
+				50ACC7461A0FA49A005E8AD6 /* General */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -387,6 +394,7 @@
 		5062B9E91A07783200C9E99A /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				C77D64FC1A1CF3CC00C2CC46 /* initializeDataBase.plist */,
 				C70DC9261A1391C5007E305E /* Images */,
 				50A9D5871A0A05E20017F354 /* TTF */,
 			);
@@ -527,8 +535,6 @@
 				C7F933BD1A14FA9900FACBFF /* ParkListPopUpController.m */,
 				C7F933BA1A14FA9900FACBFF /* ParkDetailPopUp.h */,
 				C7F933BB1A14FA9900FACBFF /* ParkDetailPopUp.m */,
-				C71B9AE11A1B988D00AF2439 /* ParkDetailsForOrder.h */,
-				C71B9AE21A1B988D00AF2439 /* ParkDetailsForOrder.m */,
 				C70DC9381A139F48007E305E /* ParkingSupportPopup.h */,
 				C70DC9391A139F48007E305E /* ParkingSupportPopup.m */,
 				C7F933BE1A14FA9900FACBFF /* StartParkingPopUp.h */,
@@ -545,6 +551,8 @@
 				C72A635B1A1A0481006A8DF5 /* ParkResrvationListPopup.m */,
 				C73622221A1A1953002A6B3A /* ParkReservationDetailsPopup.h */,
 				C73622211A1A1953002A6B3A /* ParkReservationDetailsPopup.m */,
+				C71B9AE11A1B988D00AF2439 /* ParkDetailsForOrder.h */,
+				C71B9AE21A1B988D00AF2439 /* ParkDetailsForOrder.m */,
 			);
 			name = "Top Menu";
 			sourceTree = "<group>";
@@ -571,6 +579,8 @@
 				C7ED24341A1A88A800535297 /* ShowMyCarsPopup.m */,
 				C7F88F4A1A1B2A4600CD3F3B /* MyParksList.h */,
 				C7F88F4B1A1B2A4600CD3F3B /* MyParksList.m */,
+				C77D64FE1A1D028800C2CC46 /* MyParkDetails.h */,
+				C77D64FF1A1D028800C2CC46 /* MyParkDetails.m */,
 			);
 			name = "Right Menu";
 			sourceTree = "<group>";
@@ -605,7 +615,6 @@
 			isa = PBXGroup;
 			children = (
 				C711ABBB1A1B42D700A44483 /* Custom Cells */,
-				C7F88F4C1A1B2A4600CD3F3B /* MyParksList.xib */,
 				50F828EF1A0D6C19005848A5 /* MJPopUpController.xib */,
 				C70DC91A1A13904A007E305E /* ParkListPopUpController.xib */,
 				C70DC91C1A13904A007E305E /* ParkDetailPopUp.xib */,
@@ -618,7 +627,9 @@
 				C72A635C1A1A0481006A8DF5 /* ParkResrvationListPopup.xib */,
 				C73622201A1A1953002A6B3A /* ParkReservationDetailsPopup.xib */,
 				C7ED24351A1A88A800535297 /* ShowMyCarsPopup.xib */,
+				C7F88F4C1A1B2A4600CD3F3B /* MyParksList.xib */,
 				C71B9AE31A1B988D00AF2439 /* ParkDetailsForOrder.xib */,
+				C77D65001A1D028800C2CC46 /* MyParkDetails.xib */,
 			);
 			name = XIB;
 			sourceTree = "<group>";
@@ -785,6 +796,7 @@
 				C7E62DF11A1AF73B00C3416B /* menuChat.png in Resources */,
 				C70DC9201A13904B007E305E /* ParkDetailPopUp.xib in Resources */,
 				C71B9AE51A1B988D00AF2439 /* ParkDetailsForOrder.xib in Resources */,
+				C77D64FD1A1CF3CC00C2CC46 /* initializeDataBase.plist in Resources */,
 				50AB945D1A064EB800EEBB2C /* InfoPlist.strings in Resources */,
 				C7E62DF21A1AF73B00C3416B /* menuClose.png in Resources */,
 				C7F88F501A1B2C1000CD3F3B /* MyParksCell.xib in Resources */,
@@ -798,6 +810,7 @@
 				C7EB6B1D1A15364400926B26 /* ParkExtensionPopup.xib in Resources */,
 				C7F028941A1523A400EA5DA8 /* EndParkingPopup.xib in Resources */,
 				C70DC9211A13904B007E305E /* StartParkingPopUp.xib in Resources */,
+				C77D65021A1D028800C2CC46 /* MyParkDetails.xib in Resources */,
 				C7E62DEB1A1AEF3600C3416B /* parkingicon.png in Resources */,
 				50A9D58A1A0A05E20017F354 /* Alef-Bold.ttf in Resources */,
 				50AB94661A064EB800EEBB2C /* Main.storyboard in Resources */,
@@ -875,6 +888,7 @@
 				5062B9F11A07865100C9E99A /* LoginController.m in Sources */,
 				50A9D58E1A0A0C010017F354 /* ModalController.m in Sources */,
 				50C5CB681A079F3800D43730 /* AFNetworkReachabilityManager.m in Sources */,
+				C77D65011A1D028800C2CC46 /* MyParkDetails.m in Sources */,
 				50ACC7971A10C4E0005E8AD6 /* KeyboardController.m in Sources */,
 				502F3DFE1A0B78B300BD4840 /* UIImage+Additional.m in Sources */,
 				50FC55F91A0D4F5D00D75A96 /* MJPopupBackgroundView.m in Sources */,

@@ -10,14 +10,14 @@
 
 @protocol MJPopUpControllerDelegate;
 
-
-
 @interface MyParksList : UIViewController
 <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *myParksTableView;
 
 @property (strong, nonatomic) NSArray *list;
+
+@property (strong, nonatomic) NSArray *carList;
 
 @property (assign, nonatomic) id <MJPopUpControllerDelegate> delegate;
 
@@ -28,3 +28,10 @@
 
 
 
+@protocol MJPopUpControllerDelegate <NSObject>
+
+@optional
+
+- (void)popUp:(MyParksList *)popUpController clickedMyPark:(Park *)park withCar:(Car *)car;
+
+@end

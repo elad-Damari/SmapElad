@@ -197,11 +197,13 @@
     {
         
         NSString *status = [dataDictionary objectForKey:@"status"];
+        
+         NSLog(@" status & error: \n %@ \n %@",status,  [dataDictionary objectForKey:@"message"]);
 
         if ([status isEqualToString:@"Success"])
         {
              // alert user with finish & price...
-            
+            NSLog(@" clear park from user defaults...");
             // clear park from user defaults...
             
             [[NSUserDefaults standardUserDefaults] setObject:@""       forKey:kParkID];
@@ -234,10 +236,37 @@
             
             [[NSUserDefaults standardUserDefaults] synchronize];
 
+            PXAlertView *alert =[PXAlertView showAlertWithTitle:@"בקשתך התקבלה בהצלחה !"
+                                                        message:@"חשבונך יחוייב בעלות החניה"
+                                                    cancelTitle:@"אישור"
+                                                     completion:^(BOOL cancelled, NSInteger buttonIndex)
+                                 {
+                                     
+                                      [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationSlideRightRight];
+                                     
+                                }];
+            [alert setCancelButtonBackgroundColor:[UIColor lightGrayColor]];
             
         }
         
-        // alert user somthig went wrong...
+        else
+            
+        {
+            
+            PXAlertView *alert =[PXAlertView showAlertWithTitle:@"בקשתך התקבלה בהצלחה !"
+                                                        message:@"לצערנו, כרגע לא היתה אפשרות לסיים את החניה."
+                                                    cancelTitle:@"אישור"
+                                                     completion:^(BOOL cancelled, NSInteger buttonIndex)
+                                 {
+                                     
+                                     [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationSlideRightRight];
+                                     
+                                 }];
+            [alert setCancelButtonBackgroundColor:[UIColor lightGrayColor]];
+            
+        }
+        
+       
        
 
     }

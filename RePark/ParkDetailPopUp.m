@@ -119,12 +119,7 @@
 - (IBAction)startParkingButton:(id)sender
 
 {
-    // *******************
-    
 
-
-        NSString *requestUrl = [NSString stringWithFormat:@"%@", kServerAdrress];
-        
         NSDictionary *parameters = [self getParametersForStartPark:_parkingSpotToPass.parkID];
         
         NSLog(@" parameters are: %@", parameters.description);
@@ -132,7 +127,7 @@
         
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         
-        [manager POST:requestUrl parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
+        [manager POST:kServerAdrress parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject)
          
          {
              
@@ -248,15 +243,9 @@
 - (IBAction)reservParkingButton:(id)sender
 
 {
+
+    [self.delegate popUp:self clickedOrder:_parkingSpotToPass];
     
-    //******************************************************************************
-    NSLog(@"reserv Parking window");
-    
-    // ****************************************
-    // * open reserv Parking window           *
-    // ****************************************
-    
-    //[self.delegate popUp:self clickedButton:_parkingSpotToPass];
     
 }
 

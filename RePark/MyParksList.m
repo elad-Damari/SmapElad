@@ -11,9 +11,12 @@
 #import "PXAlertView+Customization.h"
 #import <MessageUI/MessageUI.h>
 #import "MyParksCell.h"
+#import "AppDelegate.h"
 
 @interface MyParksList ()
-
+{
+    AppDelegate *appDelegate;
+}
 
 @end
 
@@ -24,6 +27,8 @@
 {
     
     [super viewDidLoad];
+    
+    appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     
     NSDictionary *parameters = [self getParametersForRequest:kDistance];
     
@@ -70,12 +75,65 @@
         
         Park *park = [self.list objectAtIndex:indexPath.row];
         
+        NSString *taken = [NSString stringWithFormat:@"%@", park.isTakenNow];
+        
+        if ([taken isEqualToString:@"1"])
+            
+        {
+            
+            Car *car = [_carList objectAtIndex:indexPath.row];
+            
+            cell.carIdLabel.text = car.carNumber;
+            
+            NSString *type = [NSString stringWithFormat:@"%@", car.carTypeID];
+            
+            int typeNumber = [type intValue];
+            
+            cell.carNumberLabel.text = [[appDelegate.dataBase objectForKey:kCarTypeID]
+                                        objectAtIndex:typeNumber];
+            
+            NSString *color = [NSString stringWithFormat:@"%@", car.carColorID];
+            
+            int colorNumber = [color intValue];
+            
+            cell.carTypeLabel.text = [[appDelegate.dataBase objectForKey:kCarColorID]
+                                           objectAtIndex:colorNumber];
+            
+        }
+        
         [cell configureCellWithMyPark:park];
         
+        return cell;
         
     }
     
     Park *park = [self.list objectAtIndex:indexPath.row];
+    
+    NSString *taken = [NSString stringWithFormat:@"%@", park.isTakenNow];
+    
+    if ([taken isEqualToString:@"1"])
+        
+    {
+        
+        Car *car = [_carList objectAtIndex:indexPath.row];
+        
+        cell.carIdLabel.text = car.carNumber;
+        
+        NSString *type = [NSString stringWithFormat:@"%@", car.carTypeID];
+        
+        int typeNumber = [type intValue];
+        
+        cell.carNumberLabel.text = [[appDelegate.dataBase objectForKey:kCarTypeID]
+                                    objectAtIndex:typeNumber];
+        
+        NSString *color = [NSString stringWithFormat:@"%@", car.carColorID];
+        
+        int colorNumber = [color intValue];
+        
+        cell.carTypeLabel.text = [[appDelegate.dataBase objectForKey:kCarColorID]
+                                    objectAtIndex:colorNumber];
+        
+    }
     
     [cell configureCellWithMyPark:park];
     
@@ -90,15 +148,19 @@
 
 {
     
-    Park *park = [self.list objectAtIndex:indexPath.row];
+    Park *park = [self.list    objectAtIndex:indexPath.row];
     
-    NSLog(@"park is: %@", park.parkID);
+    Car  *car  = [self.carList objectAtIndex:indexPath.row];
     
-    //[self.delegate popUp:self clickedPark:park];
+    [self.delegate popUp:self clickedMyPark:park withCar:car];
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
 }
+
+
+
+
 
 - (NSDictionary *) getParametersForRequest: (NSString *) sortKey
 
@@ -158,6 +220,8 @@
         
         NSMutableArray *parksArray = [[NSMutableArray alloc] init];
         
+        NSMutableArray *carsArray = [[NSMutableArray alloc] init];
+        
         for (int i=0; i<[allKeysArray count]; i++)
             
         {
@@ -168,11 +232,17 @@
             
             Park *park = [[Park alloc]initWithInfo:dic];
             
+            Car  *car  = [[Car  alloc]initWithInfo:dic];
+
+            [carsArray addObject:car];
+            
             [parksArray addObject:park];
             
         }
         
-        _list =  [[NSArray alloc] initWithArray:parksArray];
+        _carList = [[NSArray alloc] initWithArray:carsArray];
+        
+        _list    = [[NSArray alloc] initWithArray:parksArray];
         
         [_myParksTableView reloadData];
         
@@ -200,9 +270,9 @@
                                              cancelTitle:@"מייל"
                                               otherTitle:@"חייג"
                                               completion:^(BOOL cancelled, NSInteger buttonIndex) {
-                                                  if (cancelled)
+                                                if (buttonIndex == 0)
                                                   {
-                                                      NSLog(@"Cancel (Blue) button pressed");
+                                                      NSLog(@"Cancel (Blue) button pressed %ld", (long)buttonIndex);
                                                       
                                                       // Email Subject
                                                       NSString *emailTitle = @"פניה לשירות לקוחות";
@@ -220,21 +290,23 @@
                                                       // Present mail view controller on screen
                                                       [self presentViewController:mc animated:YES completion:NULL];
 
-                                                      
+                                                      [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationSlideRightRight];
                                                       
                                                       
                                                   }
-                                                  else
+                                                  else if (buttonIndex == 1)
                                                   {
-                                                      NSLog(@"Other (Red) button pressed");
+                                                      NSLog(@"Other (Red) button pressed %ld", (long)buttonIndex);
                                                       NSString *phoneNumber = [NSString stringWithFormat:@"tel://%@",
                                                                                [[NSUserDefaults standardUserDefaults] objectForKey:@"costumerSupportNumber"]];
                                                       
                                                       [[UIApplication sharedApplication] openURL:
                                                        [NSURL URLWithString:phoneNumber]];
+                                                      
+                                                      [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationSlideRightRight];
                                                   }
                                                   
-                                                  [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationSlideRightRight];
+                                                  
                                               }];
     
     [alert setCancelButtonBackgroundColor:[UIColor lightGrayColor]];

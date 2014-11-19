@@ -8,6 +8,7 @@
 
 #import "ParkExtensionPopup.h"
 #import "UIViewController+MJPopupViewController.h"
+#import "PXAlertView+Customization.h"
 
 @interface ParkExtensionPopup ()
 {
@@ -42,40 +43,13 @@
                    action:@selector(dateChanged:)
          forControlEvents:UIControlEventValueChanged];
     
-    
-    
-    //NSDate *date = [[NSDate alloc] init];
-    //[_timePickerView setDate:date animated:YES];
-    
-    
-
-//    NSDate * now = [[NSDate alloc] init];
-//    NSDateComponents * comps = [calender components:NSYearCalendarUnit|NSMonthCalendarUnit|NSDayCalendarUnit fromDate:now];
-//    [comps setHour:0];
-//    [comps setMinute:0];
-    
-    
-    
-//    NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
-//    [outputFormatter setDateFormat:@"h:mm a"];
-//    _extensionPriceLabel.text = [outputFormatter stringFromDate:_timePickerView.date];
-    
-    
-    //UIDatePicker *datePicker;
-    
-//    _timePickerView = [[UIDatePicker alloc]init];
-//    [_timePickerView setDate:[NSDate date]];
-//    [_timePickerView setDatePickerMode:UIDatePickerModeDate];
-//    [_timePickerView removeTarget:self action:nil forControlEvents:UIControlEventValueChanged];
-//    [_timePickerView addTarget:self action:@selector(updateTextFieldDate:)     forControlEvents:UIControlEventValueChanged];
-    
-    
 }
 
 - (void)dateChanged:(id)sender
 {
-    //UIDatePicker *datePicker = (UIDatePicker *)sender;
+
     NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    
     [format setDateFormat:@"hh:mm"];
     
     NSString *string = [format stringFromDate:[_timePickerView date]];
@@ -188,15 +162,40 @@
     
     NSLog(@"\n data : \n%@", dataDictionary);
     
-    NSString *str = [dataDictionary objectForKey:@"status"];
+    NSString *status = [dataDictionary objectForKey:@"status"];
     
-    if ([str isEqualToString:@"Success"])
+    if ([status isEqualToString:@"Success"])
     {
-        // alert extension sent to user ....
+        PXAlertView *alert =[PXAlertView showAlertWithTitle:@"בקשתך התקבלה בהצלחה !"
+                                                    message:@" פנייתך תועבר לבעל החניה ובהמשך תקבל עידכון האם פנייתך אושרה."
+                                                cancelTitle:@"אישור"
+                                                 completion:^(BOOL cancelled, NSInteger buttonIndex)
+        {
+            
+            [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationSlideRightRight];
+        
+        }
+                             ];
+        [alert setCancelButtonBackgroundColor:[UIColor lightGrayColor]];
+
     }
+    
     else
+        
     {
-        // alert something went wrong...
+        
+        PXAlertView *alert =[PXAlertView showAlertWithTitle:@"בקשתך התקבלה בהצלחה !"
+                                                    message:@"לצערנו, כרגע לא ניתן להאריך את החניה."
+                                                cancelTitle:@"אישור"
+                                                 completion:^(BOOL cancelled, NSInteger buttonIndex)
+        {
+            
+            [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationSlideRightRight];
+        
+        }
+                             ];
+        [alert setCancelButtonBackgroundColor:[UIColor lightGrayColor]];
+        
     }
     
 }

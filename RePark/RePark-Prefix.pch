@@ -16,5 +16,7 @@
     #import "Constants.h"
     #import "UIAlertView+CustomAlertView.h"
     #import "AFHTTPRequestOperationManager.h"
-#import "Park.h"
+    #import "Park.h"
+    #import "Car.h"
+    #import "AppDelegate.h"
 #endif

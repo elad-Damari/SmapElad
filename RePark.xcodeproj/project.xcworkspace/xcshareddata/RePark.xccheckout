@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>52906CE8-B76F-489F-B186-9C04EFE613EC</string>
+	<string>B206EFB0-77A8-46B4-8CDE-7CBD858AD021</string>
 	<key>IDESourceControlProjectName</key>
 	<string>RePark</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>110F2C46-6E26-4804-BC97-5853A3F611F6</key>
-		<string>https://github.com/elad-Damari/RePark.git</string>
+		<key>1A2BD46E-0F3A-42FD-8D6F-65CCC4FCAAA0</key>
+		<string>https://github.com/elad-Damari/SmapElad.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>RePark.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>110F2C46-6E26-4804-BC97-5853A3F611F6</key>
+		<key>1A2BD46E-0F3A-42FD-8D6F-65CCC4FCAAA0</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/elad-Damari/RePark.git</string>
+	<string>https://github.com/elad-Damari/SmapElad.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>110F2C46-6E26-4804-BC97-5853A3F611F6</string>
+	<string>1A2BD46E-0F3A-42FD-8D6F-65CCC4FCAAA0</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>110F2C46-6E26-4804-BC97-5853A3F611F6</string>
+			<string>1A2BD46E-0F3A-42FD-8D6F-65CCC4FCAAA0</string>
 			<key>IDESourceControlWCCName</key>
-			<string>ReParkGit</string>
+			<string>SmapElad</string>
 		</dict>
 	</array>
 </dict>

@@ -10,6 +10,7 @@
 
 #import "MZFormSheetSegue.h"
 #import "UIViewController+MJPopupViewController.h"
+#import "PXAlertView+Customization.h"
 
 #import "AFNetworking.h"
 
@@ -24,7 +25,9 @@
 #import "ParkResrvationListPopup.h"
 #import "ParkReservationDetailsPopup.h"
 #import "ShowMyCarsPopup.h"
+#import "ParkDetailsForOrder.h"
 #import "MyParksList.h"
+#import "MyParkDetails.h"
 
 
 //6. import relevant class .h file. this is the class  you want to popup .h file
@@ -60,6 +63,10 @@
     ShowMyCarsPopup         *showMyCarsPopup;
     
     MyParksList             *myParksList;
+    
+    MyParkDetails           *myParkDetails;
+    
+    ParkDetailsForOrder     *parkDetailsForOrder;
     
     NSMutableDictionary     *parametersDictionary;
     
@@ -342,9 +349,9 @@
 
     [parametersDictionary setObject:@"32.170539"   forKey:@"latitude"];
     [parametersDictionary setObject:@"34.926680"   forKey:@"longtitude"];
-    [parametersDictionary setObject:@"סיני"         forKey:@"location"];
-    [parametersDictionary setObject:@"120"         forKey:@"pricePerHour"];
-    [parametersDictionary setObject:@"987"         forKey:@"pricePerDay"];
+    [parametersDictionary setObject:@"לוקיישן"         forKey:@"location"];
+    [parametersDictionary setObject:@"20"         forKey:@"pricePerHour"];
+    [parametersDictionary setObject:@"98"         forKey:@"pricePerDay"];
     [parametersDictionary setObject:@"רגוע פלוס"    forKey:@"parkComments"];
     [parametersDictionary setObject:jsonString     forKey:@"parkSlots"];
     
@@ -384,44 +391,64 @@
     
     if ([park.parkID isEqualToString:@""])
     {
-        // alert user that there is no active parking at the moment...
+        PXAlertView *alert =[PXAlertView showAlertWithTitle:@"כרגע אין חניה פעילה"
+                                                    message:nil
+                                                cancelTitle:@"אישור"
+                                                 completion:^(BOOL cancelled, NSInteger buttonIndex)
+                             {
+                                 if (cancelled)
+                                 {
+                                     NSLog(@"Simple Alert View cancelled");
+                                     [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationSlideRightRight];
+                                 }
+                                 else
+                                 {
+                                     NSLog(@"Simple Alert View dismissed, but not cancelled");
+                                     
+                                 }}];
+        [alert setCancelButtonBackgroundColor:[UIColor lightGrayColor]];
     }
-    park.userID = [[NSUserDefaults standardUserDefaults] objectForKey:kUserID];
-    park.sizeID = [[NSUserDefaults standardUserDefaults] objectForKey:kSizeID];
-    park.gateID = [[NSUserDefaults standardUserDefaults] objectForKey:kGateID];
-    park.parkTopID = [[NSUserDefaults standardUserDefaults] objectForKey:kParkTopID];
-    park.parkTypeID = [[NSUserDefaults standardUserDefaults] objectForKey:kParkTypeID];
-    park.parkComments = [[NSUserDefaults standardUserDefaults] objectForKey:kParkComments];
     
-    park.parkImagePath = [[NSUserDefaults standardUserDefaults] objectForKey:kParkImagePath];
-    park.buildingImagePath = [[NSUserDefaults standardUserDefaults] objectForKey:kBuildingImagePath];
+    else
+    {
+        park.userID = [[NSUserDefaults standardUserDefaults] objectForKey:kUserID];
+        park.sizeID = [[NSUserDefaults standardUserDefaults] objectForKey:kSizeID];
+        park.gateID = [[NSUserDefaults standardUserDefaults] objectForKey:kGateID];
+        park.parkTopID = [[NSUserDefaults standardUserDefaults] objectForKey:kParkTopID];
+        park.parkTypeID = [[NSUserDefaults standardUserDefaults] objectForKey:kParkTypeID];
+        park.parkComments = [[NSUserDefaults standardUserDefaults] objectForKey:kParkComments];
+        
+        park.parkImagePath = [[NSUserDefaults standardUserDefaults] objectForKey:kParkImagePath];
+        park.buildingImagePath = [[NSUserDefaults standardUserDefaults] objectForKey:kBuildingImagePath];
+        
+        park.addressID = [[NSUserDefaults standardUserDefaults] objectForKey:kAddressID];
+        park.latitude = [[NSUserDefaults standardUserDefaults] objectForKey:kLatitude];
+        park.longtitude = [[NSUserDefaults standardUserDefaults] objectForKey:kLongtitude];
+        park.distance = [[NSUserDefaults standardUserDefaults] objectForKey:kDistance];
+        
+        park.pricePerDay = [[NSUserDefaults standardUserDefaults] objectForKey:kPricePerDay];
+        park.pricePerHour = [[NSUserDefaults standardUserDefaults] objectForKey:kPricePerHour];
+        
+        park.startTime = [[NSUserDefaults standardUserDefaults] objectForKey:kStartTime];
+        park.endTime = [[NSUserDefaults standardUserDefaults] objectForKey:kEndTime];
+        park.timeRemain = [[NSUserDefaults standardUserDefaults] objectForKey:kTimeRemain];
+        park.isTakenNow = [[NSUserDefaults standardUserDefaults] objectForKey:kIsTakenNow];
+        
+        park.rankCounter = [[NSUserDefaults standardUserDefaults] objectForKey:kRankCounter];
+        park.rankTotal = [[NSUserDefaults standardUserDefaults] objectForKey:kRankTotal];
+        park.favorit = [[NSUserDefaults standardUserDefaults] objectForKey:kFavorit];
+        
+        
+        
+        startParkingPopUp              = [[StartParkingPopUp alloc] init];
+        
+        startParkingPopUp.delegate     = self;
+        
+        startParkingPopUp.park = park;
+        
+        [self presentPopupViewController:startParkingPopUp animationType:MJPopupViewAnimationSlideRightRight];
+    }
     
-    park.addressID = [[NSUserDefaults standardUserDefaults] objectForKey:kAddressID];
-    park.latitude = [[NSUserDefaults standardUserDefaults] objectForKey:kLatitude];
-    park.longtitude = [[NSUserDefaults standardUserDefaults] objectForKey:kLongtitude];
-    park.distance = [[NSUserDefaults standardUserDefaults] objectForKey:kDistance];
-    
-    park.pricePerDay = [[NSUserDefaults standardUserDefaults] objectForKey:kPricePerDay];
-    park.pricePerHour = [[NSUserDefaults standardUserDefaults] objectForKey:kPricePerHour];
-    
-    park.startTime = [[NSUserDefaults standardUserDefaults] objectForKey:kStartTime];
-    park.endTime = [[NSUserDefaults standardUserDefaults] objectForKey:kEndTime];
-    park.timeRemain = [[NSUserDefaults standardUserDefaults] objectForKey:kTimeRemain];
-    park.isTakenNow = [[NSUserDefaults standardUserDefaults] objectForKey:kIsTakenNow];
-    
-    park.rankCounter = [[NSUserDefaults standardUserDefaults] objectForKey:kRankCounter];
-    park.rankTotal = [[NSUserDefaults standardUserDefaults] objectForKey:kRankTotal];
-    park.favorit = [[NSUserDefaults standardUserDefaults] objectForKey:kFavorit];
-    
-    
-
-    startParkingPopUp              = [[StartParkingPopUp alloc] init];
-    
-    startParkingPopUp.delegate     = self;
-    
-    startParkingPopUp.park = park;
-    
-    [self presentPopupViewController:startParkingPopUp animationType:MJPopupViewAnimationSlideRightRight];
 
 }
 
@@ -633,6 +660,42 @@
     
     [self presentPopupViewController:parkReservationDetailsPopup animationType:MJPopupViewAnimationSlideRightRight];
     
+}
+
+
+
+- (void)popUp:(ParkDetailsForOrder *)popUpController clickedOrder:(Park *) park
+
+{
+    
+    
+    [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationSlideLeftLeft];
+    
+    parkDetailsForOrder = [[ParkDetailsForOrder alloc] init];
+    
+    parkDetailsForOrder.delegate = self;
+    
+    parkDetailsForOrder.parkingSpotToPass = park;
+    
+    [self presentPopupViewController:parkDetailsForOrder animationType:MJPopupViewAnimationSlideRightRight];
+    
+}
+
+- (void)popUp:(MyParkDetails *)popUpController clickedMyPark:(Park *)park withCar:(Car *)car
+
+{
+    
+    [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationSlideLeftLeft];
+    
+    myParkDetails = [[MyParkDetails alloc] init];
+    
+    myParkDetails.delegate = self;
+    
+    myParkDetails.park = park;
+    
+    myParkDetails.car = car;
+    
+    [self presentPopupViewController:myParkDetails animationType:MJPopupViewAnimationSlideRightRight];
 }
 
 

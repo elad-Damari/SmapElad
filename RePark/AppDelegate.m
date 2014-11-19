@@ -10,11 +10,16 @@
 
 @implementation AppDelegate
 
+@synthesize dataBase;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    // initialzie methods
     
+    NSString *path  = [[NSBundle mainBundle] pathForResource:@"initializeDataBase" ofType:@"plist"];
+    dataBase = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
     
-    [[NSUserDefaults standardUserDefaults] setObject:@"1259a2e9fcb3d69bca0e6398f5ae9067f7fad75adaaf7c83606cb32819f9b99d656c616440676d61696c2e636f6d"
+    [[NSUserDefaults standardUserDefaults] setObject:@"bec80288fe84f585cb83dda71cabe1a351e1c8fe27bd68e688a9aa0dffaf9ecf30353036383331353431"
                                               forKey:kAccessToken];
     
     [[NSUserDefaults standardUserDefaults] setObject:@"homeScreen" forKey:@"whichList" ];
@@ -23,7 +28,7 @@
     
     [[NSUserDefaults standardUserDefaults] setObject:@"0505906366" forKey:@"parkOwnerNumber"];
     
-    [[NSUserDefaults standardUserDefaults] setObject:@"2"          forKey:@"defaultCarId"];
+    [[NSUserDefaults standardUserDefaults] setObject:@"1"          forKey:@"defaultCarId"];
     
     [[NSUserDefaults standardUserDefaults] setObject:@"11"          forKey:@"userType"];
     

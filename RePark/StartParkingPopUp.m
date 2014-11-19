@@ -7,9 +7,12 @@
 //
 
 #import "StartParkingPopUp.h"
-#import "Park.h"
-#import "AFNetworking.h"
+
 #import "UIViewController+MJPopupViewController.h"
+#import "PXAlertView+Customization.h"
+#import "AFNetworking.h"
+
+#import "Park.h"
 
 @interface StartParkingPopUp ()
 
@@ -114,8 +117,29 @@
 - (IBAction)openGateButton:(id)sender
 
 {
+    
+    if ([_park.gateID isEqualToString:@"3"])
+        
+    {
+        
+        [self.delegate popUp:self clickedGate:_park];
+        
+    }
+    
+    else
+        
+    {
+        
+        PXAlertView *alert =[PXAlertView showAlertWithTitle:@"שים לב !"
+                                                    message:@"כרגע בחניה זו לא קיים מנגנון פתיחת שער מרחוק."
+                                                cancelTitle:@"אישור"
+                                                 completion:^(BOOL cancelled, NSInteger buttonIndex)
+                             {}];
+        [alert setCancelButtonBackgroundColor:[UIColor lightGrayColor]];
+        
+    }
 
-    [self.delegate popUp:self clickedGate:_park];
+    
     
 }
 

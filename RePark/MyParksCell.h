@@ -10,11 +10,14 @@
 
 @interface MyParksCell : UITableViewCell
 
-//@property (weak, nonatomic) IBOutlet UILabel *carIdLabel;
+@property (weak, nonatomic) IBOutlet UILabel *carIdLabel;
+@property (weak, nonatomic) IBOutlet UILabel *carIdTitleLabel;
 
-//@property (weak, nonatomic) IBOutlet UILabel *carNumberLabel;
+@property (weak, nonatomic) IBOutlet UILabel *carNumberLabel;
+@property (weak, nonatomic) IBOutlet UILabel *carNumberTitleLabel;
 
-//@property (weak, nonatomic) IBOutlet UILabel *carTypeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *carTypeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *carTypeTitleLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *pricePerHour;
 

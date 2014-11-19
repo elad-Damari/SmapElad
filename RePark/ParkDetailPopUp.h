@@ -28,4 +28,6 @@
 
 - (void)popUp:(ParkDetailPopUp *)popUpController clickedButton:(Park *) park;
 
+- (void)popUp:(ParkDetailPopUp *)popUpController clickedOrder:(Park *) park;
+
 @end
