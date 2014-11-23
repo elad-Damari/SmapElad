@@ -21,7 +21,7 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EbM-1n-Lsw">
-                            <rect key="frame" x="78" y="0.0" width="105" height="30"/>
+                            <rect key="frame" x="0.0" y="5" width="105" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                             <state key="normal" title="סגור">
@@ -29,6 +29,18 @@
                             </state>
                             <connections>
                                 <action selector="closeButton:" destination="-1" eventType="touchUpInside" id="P24-xJ-sMH"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iQ1-6e-Hmr">
+                            <rect key="frame" x="155" y="2" width="105" height="36"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                            <state key="normal" title="+ הוסף רכב">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="addNewCarButton:" destination="-1" eventType="touchUpInside" id="ZOs-Xg-C0D"/>
+                                <action selector="closeButton:" destination="-1" eventType="touchUpInside" id="fyw-1q-CrO"/>
                             </connections>
                         </button>
                     </subviews>

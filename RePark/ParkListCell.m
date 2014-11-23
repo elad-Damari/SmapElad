@@ -11,12 +11,17 @@
 #import <CoreLocation/CoreLocation.h>
 
 @implementation ParkListCell
+{
+    AppDelegate     *appDelegate;
+}
 
 @synthesize addressLabel, distanceLabel, priceLabel, typeLabel, myLabel;
 
 - (void) configureCellWithPark: (Park *) park
 
 {
+    appDelegate  = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    
     
     self.addressLabel.text  = park.addressID;
     
@@ -24,7 +29,8 @@
     
     self.priceLabel.text    = park.pricePerHour;
     
-    self.typeLabel.text     = park.parkTypeID;
+    self.typeLabel.text     = [[appDelegate.dataBase objectForKey:kParkTypeID]
+                               objectAtIndex:[park.typeID intValue]];
     
     if ([park.favorit isEqualToString:@"0"])
         

@@ -18,6 +18,11 @@
     AppDelegate *appDelegate;
 }
 
+
+- (IBAction)newPark:(id)sender;
+
+
+
 @end
 
 @implementation MyParksList
@@ -375,6 +380,17 @@
     
     
 }
+
+
+
+- (IBAction)newPark:(id)sender
+
+{
+
+    [self.delegate popUp:self];
+
+}
+
 
 
 

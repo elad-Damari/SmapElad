@@ -24,8 +24,8 @@
         _userID            = info[kUserID];
         _sizeID            = info[kSizeID];
         _gateID            = info[kGateID];
-        _parkTopID         = info[kParkTopID];
-        _parkTypeID        = info[kParkTypeID];
+        _topID             = info[@"parkTopID"];
+        _typeID            = info[@"parkTypeID"];
         _parkComments      = info[kParkComments];
         
         _parkImagePath     = info[kParkImagePath];

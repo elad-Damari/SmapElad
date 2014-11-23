@@ -14,8 +14,8 @@
 @property (nonatomic, strong) NSString *userID;
 @property (nonatomic, strong) NSString *sizeID;
 @property (nonatomic, strong) NSString *gateID;
-@property (nonatomic, strong) NSString *parkTopID;
-@property (nonatomic, strong) NSString *parkTypeID;
+@property (nonatomic, strong) NSString *topID;
+@property (nonatomic, strong) NSString *typeID;
 @property (nonatomic, strong) NSString *parkComments;
 
 @property (nonatomic, strong) NSString *parkImagePath;

@@ -34,4 +34,6 @@
 
 - (void)popUp:(MyParksList *)popUpController clickedMyPark:(Park *)park withCar:(Car *)car;
 
+- (void)popUp:(MyParksList *)popUpController;
+
 @end

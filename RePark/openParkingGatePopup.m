@@ -8,6 +8,7 @@
 
 #import "openParkingGatePopup.h"
 #import "UIViewController+MJPopupViewController.h"
+#import "PXAlertView+Customization.h"
 
 @interface openParkingGatePopup ()
 
@@ -38,12 +39,30 @@
         NSDictionary *parameters = [self getParametersForRequest:kDistance];
         
         [self getParksListWithRequestUrl:requestUrl andParameters:parameters];
+
     }
     
     else
     {
         // log user that gate has no phone opening machanism ...
         NSLog(@" no phone opening machanism ...");
+        
+        PXAlertView *alert =[PXAlertView showAlertWithTitle:@"לא ניתן לפתוח שער !"
+                                                    message:@"לצערנו, כרגע לשער זה אין מנגנון פתיחה באמצעות חיוג."
+                                                cancelTitle:@"אישור"
+                                                 completion:^(BOOL cancelled, NSInteger buttonIndex)
+                             {
+                                 if (cancelled)
+                                 {
+                                     NSLog(@"Simple Alert View cancelled");
+                                     [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationSlideRightRight];
+                                 }
+                                 else
+                                 {
+                                     NSLog(@"Simple Alert View dismissed, but not cancelled");
+                                     
+                                 }}];
+        [alert setCancelButtonBackgroundColor:[UIColor lightGrayColor]];
     }
     
 }
@@ -105,8 +124,54 @@
 - (void) getDataFromResponse: (NSDictionary *) dataDictionary
 
 {
+    NSString *status = [dataDictionary objectForKey:@"status"];
     
-    NSLog(@"\n data : \n%@", dataDictionary);
+    if ([status isEqualToString:@"Success"])
+    {
+        //NSString *message = [dataDictionary objectForKey:@"message"];
+        
+        PXAlertView *alert =[PXAlertView showAlertWithTitle:@"בקשתך התקבלה בהצלחה !"
+                                                    message:[dataDictionary objectForKey:@"message"]
+                                                cancelTitle:@"אישור"
+                                                 completion:^(BOOL cancelled, NSInteger buttonIndex)
+                             {
+                                 if (cancelled)
+                                 {
+                                     NSLog(@"Simple Alert View cancelled");
+                                     [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationSlideRightRight];
+                                 }
+                                 else
+                                 {
+                                     NSLog(@"Simple Alert View dismissed, but not cancelled");
+                                     
+                                 }}];
+        [alert setCancelButtonBackgroundColor:[UIColor lightGrayColor]];
+
+    }
+    
+//    else
+//    {
+//        
+//        PXAlertView *alert =[PXAlertView showAlertWithTitle:@"בקשתך התקבלה בהצלחה !"
+//                                                    message:[dataDictionary objectForKey:@"message"]
+//                                                cancelTitle:@"אישור"
+//                                                 completion:^(BOOL cancelled, NSInteger buttonIndex)
+//                             {
+//                                 if (cancelled)
+//                                 {
+//                                     NSLog(@"Simple Alert View cancelled");
+//                                     [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationSlideRightRight];
+//                                 }
+//                                 else
+//                                 {
+//                                     NSLog(@"Simple Alert View dismissed, but not cancelled");
+//                                     
+//                                 }}];
+//        [alert setCancelButtonBackgroundColor:[UIColor lightGrayColor]];
+//        
+//    }
+   
+    
     
     
 }

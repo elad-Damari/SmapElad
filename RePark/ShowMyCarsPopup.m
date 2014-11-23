@@ -17,6 +17,7 @@
 
 - (IBAction)closeButton:(id)sender;
 
+- (IBAction)addNewCarButton:(id)sender;
 
 
 
@@ -239,6 +240,14 @@
 {
     
     [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationSlideRightRight];
+    
+}
+
+- (IBAction)addNewCarButton:(id)sender
+
+{
+    
+    [self.delegate popUpCar:self];
     
 }
 

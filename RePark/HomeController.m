@@ -28,6 +28,8 @@
 #import "ParkDetailsForOrder.h"
 #import "MyParksList.h"
 #import "MyParkDetails.h"
+#import "AddNewPark.h"
+#import "AddNewCar.h"
 
 
 //6. import relevant class .h file. this is the class  you want to popup .h file
@@ -68,6 +70,11 @@
     
     ParkDetailsForOrder     *parkDetailsForOrder;
     
+    AddNewPark              *addNewPark;
+    
+    AddNewCar               *addNewCar;
+    
+    
     NSMutableDictionary     *parametersDictionary;
     
     CLLocation              *userLocation;
@@ -104,8 +111,6 @@
 - (IBAction)searchParkByAddressButton:(id)sender;
 
 - (IBAction)radiusSliderValChanged:(id)sender;
-
-- (IBAction)addParkTest:(id)sender;
 
 - (IBAction)searchParksReservation:(id)sender;
 
@@ -287,86 +292,6 @@
 }
 
 
-// **************  addParkTest  ***************
-
-- (IBAction)addParkTest:(id)sender
-
-{
-    
-    parametersDictionary  = [[NSMutableDictionary alloc] init];
-    NSString *accessToken = [NSString stringWithFormat:@"%@",
-                             [[NSUserDefaults standardUserDefaults] objectForKey:kAccessToken]];
-    
-    NSMutableDictionary *parktime1  = [[NSMutableDictionary alloc] init];
-    [parktime1 setObject:@"1"         forKey:@"day"];
-    [parktime1 setObject:@"00:00"     forKey:@"startTime"];
-    [parktime1 setObject:@"23:59"     forKey:@"endTime"];
-    
-    NSMutableDictionary *parktime2  = [[NSMutableDictionary alloc] init];
-    [parktime1 setObject:@"2"         forKey:@"day"];
-    [parktime1 setObject:@"00:00"     forKey:@"startTime"];
-    [parktime1 setObject:@"23:59"     forKey:@"endTime"];
-    
-    NSMutableDictionary *parktime3  = [[NSMutableDictionary alloc] init];
-    [parktime1 setObject:@"3"         forKey:@"day"];
-    [parktime1 setObject:@"00:00"     forKey:@"startTime"];
-    [parktime1 setObject:@"23:59"     forKey:@"endTime"];
-    
-    NSMutableDictionary *parkIndexx = [[NSMutableDictionary alloc] init];
-    [parkIndexx setObject:parktime1   forKey:@"0"];
-    [parkIndexx setObject:parktime2   forKey:@"1"];
-    [parkIndexx setObject:parktime3   forKey:@"2"];
-    
-    NSString *jsonString;
-    NSError *error;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parkIndexx
-                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
-                                                         error:&error];
-    
-    if (! jsonData) {
-        NSLog(@"Got an error: %@", error);
-    }
-    else
-    {
-        jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    }
-    
-
-    
-    
-    
-//    NSMutableDictionary *parkSlots = [[NSMutableDictionary alloc] init];
-//    [parkSlots setObject:parkIndex forKey:@"parkSlots"];
-    
-    NSLog(@" PARK slots properties are: %@",  jsonString);
-    
-    [parametersDictionary setObject:accessToken    forKey:kAccessToken];
-    [parametersDictionary setObject:kAddPark       forKey:kService];
-    [parametersDictionary setObject:@"1"           forKey:@"sizeID"];
-    [parametersDictionary setObject:@"1"           forKey:@"gateID"];
-    [parametersDictionary setObject:@"1"           forKey:@"topID"];
-    [parametersDictionary setObject:@"1"           forKey:@"typeID"];
-
-    [parametersDictionary setObject:@"32.170539"   forKey:@"latitude"];
-    [parametersDictionary setObject:@"34.926680"   forKey:@"longtitude"];
-    [parametersDictionary setObject:@"לוקיישן"         forKey:@"location"];
-    [parametersDictionary setObject:@"20"         forKey:@"pricePerHour"];
-    [parametersDictionary setObject:@"98"         forKey:@"pricePerDay"];
-    [parametersDictionary setObject:@"רגוע פלוס"    forKey:@"parkComments"];
-    [parametersDictionary setObject:jsonString     forKey:@"parkSlots"];
-    
-    [parametersDictionary setObject:@"X"           forKey:@"parkImage"];
-    [parametersDictionary setObject:@"Y"           forKey:@"buildingImage"];
-    
-    // ******** test *******
-    //[parametersDictionary setObject:@"0536244266"    forKey:@"gatePhone"];
-    
-    
-    [self getParksListWithRequestUrl:kServerAdrress andParameters:parametersDictionary];
-    
-    
-
-}
 
 - (IBAction)searchParksReservation:(id)sender
 
@@ -414,8 +339,8 @@
         park.userID = [[NSUserDefaults standardUserDefaults] objectForKey:kUserID];
         park.sizeID = [[NSUserDefaults standardUserDefaults] objectForKey:kSizeID];
         park.gateID = [[NSUserDefaults standardUserDefaults] objectForKey:kGateID];
-        park.parkTopID = [[NSUserDefaults standardUserDefaults] objectForKey:kParkTopID];
-        park.parkTypeID = [[NSUserDefaults standardUserDefaults] objectForKey:kParkTypeID];
+        park.topID = [[NSUserDefaults standardUserDefaults] objectForKey:kParkTopID];
+        park.typeID = [[NSUserDefaults standardUserDefaults] objectForKey:kParkTypeID];
         park.parkComments = [[NSUserDefaults standardUserDefaults] objectForKey:kParkComments];
         
         park.parkImagePath = [[NSUserDefaults standardUserDefaults] objectForKey:kParkImagePath];
@@ -472,19 +397,7 @@
 
 
 
-- (IBAction)openMyParksButton:(id)sender
 
-{
-    
-    myParksList = [[MyParksList alloc] init];
-    
-    myParksList.delegate = self;
-    
-    [self presentPopupViewController:myParksList animationType:MJPopupViewAnimationSlideRightRight];
-    
-    
-    
-}
 
 
 
@@ -504,8 +417,7 @@
 - (IBAction)openFavoriteParksList:(id)sender
 
 {
-    
-    NSLog(@" favorits pressed");
+
     NSDictionary *parameters = [self getParametersForServerRequestName:kGetMyFavoriteParks
                                                              AndSortBy:kFavorit];
     
@@ -698,6 +610,48 @@
     [self presentPopupViewController:myParkDetails animationType:MJPopupViewAnimationSlideRightRight];
 }
 
+
+- (IBAction)openMyParksButton:(id)sender
+
+{
+    [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationSlideLeftLeft];
+    
+    myParksList = [[MyParksList alloc] init];
+    
+    myParksList.delegate = self;
+    
+    [self presentPopupViewController:myParksList animationType:MJPopupViewAnimationSlideRightRight];
+ 
+}
+
+
+- (void)popUp:(AddNewPark *)popUpController
+
+{
+    
+    [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationSlideLeftLeft];
+    
+    addNewPark           = [[AddNewPark alloc] init];
+    
+    addNewPark.delegate = self;
+    
+    [self presentPopupViewController:addNewPark animationType:MJPopupViewAnimationSlideRightRight];
+    
+}
+
+- (void) popUpCar:(AddNewCar *)popUpController
+
+{
+    
+    [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationSlideLeftLeft];
+    
+    addNewCar           = [[AddNewCar alloc] init];
+    
+    addNewCar.delegate = self;
+    
+    [self presentPopupViewController:addNewCar animationType:MJPopupViewAnimationSlideRightRight];
+    
+}
 
 
 #pragma mark - Handle Field Methods

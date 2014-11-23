@@ -68,9 +68,9 @@ static NSString * const kParkID             = @"parkID";
 static NSString * const kUserID             = @"userID";
 static NSString * const kSizeID             = @"sizeID";
 static NSString * const kGateID             = @"gateID";
-static NSString * const kParkTopID          = @"parkTopID";
-static NSString * const kParkTypeID         = @"parkTypeID";
-static NSString * const kParkComments       = @"comments";
+static NSString * const kParkTopID          = @"topID";
+static NSString * const kParkTypeID         = @"typeID";
+static NSString * const kParkComments       = @"parkComments";
 
 static NSString * const kParkImagePath      = @"parkImagePath";
 static NSString * const kBuildingImagePath  = @"buildingImagePath";

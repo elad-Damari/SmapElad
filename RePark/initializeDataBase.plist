@@ -2,6 +2,38 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>days</key>
+	<dict>
+		<key>ראשון</key>
+		<string>0</string>
+		<key>שני</key>
+		<string>1</string>
+		<key>שלישי</key>
+		<string>2</string>
+		<key>רביעי</key>
+		<string>3</string>
+		<key>חמישי</key>
+		<string>4</string>
+		<key>שישי</key>
+		<string>5</string>
+		<key>שבת</key>
+		<string>6</string>
+	</dict>
+	<key>userTypes</key>
+	<array>
+		<string></string>
+		<string>none</string>
+		<string>Car Owner</string>
+		<string>Park Owner</string>
+		<string>Own Both</string>
+	</array>
+	<key>sizeID</key>
+	<array>
+		<string></string>
+		<string>פרטי</string>
+		<string>ג&apos;יפ</string>
+		<string>קטן</string>
+	</array>
 	<key>carColorID</key>
 	<array>
 		<string></string>
@@ -22,7 +54,7 @@
 		<string>תכלת</string>
 		<string>שחור</string>
 	</array>
-	<key>parkGateID</key>
+	<key>gateID</key>
 	<array>
 		<string></string>
 		<string>אין</string>
@@ -30,13 +62,13 @@
 		<string>טלפון</string>
 		<string>שומר</string>
 	</array>
-	<key>parkTopID</key>
+	<key>topID</key>
 	<array>
 		<string></string>
 		<string>מקורה</string>
 		<string>פתוחה</string>
 	</array>
-	<key>parkTypeID</key>
+	<key>typeID</key>
 	<array>
 		<string></string>
 		<string>מגורים</string>

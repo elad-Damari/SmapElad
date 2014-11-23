@@ -195,8 +195,8 @@
     [[NSUserDefaults standardUserDefaults] setObject:_park.userID       forKey:kUserID];
     [[NSUserDefaults standardUserDefaults] setObject:_park.sizeID       forKey:kSizeID];
     [[NSUserDefaults standardUserDefaults] setObject:_park.gateID       forKey:kGateID];
-    [[NSUserDefaults standardUserDefaults] setObject:_park.parkTopID    forKey:kParkTopID];
-    [[NSUserDefaults standardUserDefaults] setObject:_park.parkTypeID   forKey:kParkTypeID];
+    [[NSUserDefaults standardUserDefaults] setObject:_park.topID        forKey:kParkTopID];
+    [[NSUserDefaults standardUserDefaults] setObject:_park.typeID       forKey:kParkTypeID];
     [[NSUserDefaults standardUserDefaults] setObject:_park.parkComments forKey:kParkComments];
     
     [[NSUserDefaults standardUserDefaults] setObject:_park.parkImagePath     forKey:kParkImagePath];

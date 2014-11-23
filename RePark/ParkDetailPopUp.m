@@ -17,6 +17,8 @@
 
 {
     
+    AppDelegate     *appDelegate;
+    
     NSString *minute, *hour;
 
 }
@@ -78,6 +80,8 @@
 {
     
     [super viewDidLoad];
+    
+    appDelegate  = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     
     NSLog(@"parking  spot ID is: %@", _parkingSpotToPass.parkID);
     
@@ -451,17 +455,27 @@
     
     _parkDistanceLabel.text = [NSString stringWithFormat:@"%d",[park.distance intValue]];
     
-    _parkSizeLabel.text     = [[NSUserDefaults standardUserDefaults] objectForKey:
-                                [NSString stringWithFormat:@"size%@", park.sizeID]];
+//    _parkSizeLabel.text     = [[NSUserDefaults standardUserDefaults] objectForKey:
+//                                [NSString stringWithFormat:@"size%@", park.sizeID]];
+//
+//    _parkGateLabel.text     = [[NSUserDefaults standardUserDefaults] objectForKey:
+//                               [NSString stringWithFormat:@"gate%@", park.gateID]];
+//    
+//    _parkTopLabel.text      = [[NSUserDefaults standardUserDefaults] objectForKey:
+//                               [NSString stringWithFormat:@"top%@", park.topID]];
+//    
+//    _parkTypeLabel.text     = [[NSUserDefaults standardUserDefaults] objectForKey:
+//                               [NSString stringWithFormat:@"type%@", park.typeID]];
     
-    _parkGateLabel.text     = [[NSUserDefaults standardUserDefaults] objectForKey:
-                               [NSString stringWithFormat:@"gate%@", park.gateID]];
+    _parkSizeLabel.text = [[appDelegate.dataBase objectForKey:kSizeID] objectAtIndex:[park.sizeID intValue]];
     
-    _parkTopLabel.text      = [[NSUserDefaults standardUserDefaults] objectForKey:
-                               [NSString stringWithFormat:@"top%@", park.parkTopID]];
+    _parkGateLabel.text = [[appDelegate.dataBase objectForKey:kGateID] objectAtIndex:[park.gateID intValue]];
     
-    _parkTypeLabel.text     = [[NSUserDefaults standardUserDefaults] objectForKey:
-                               [NSString stringWithFormat:@"type%@", park.parkTypeID]];
+    _parkTopLabel.text  = [[appDelegate.dataBase objectForKey:kParkTopID] objectAtIndex:[park.topID intValue]];
+    
+    _parkTypeLabel.text = [[appDelegate.dataBase objectForKey:kParkTypeID] objectAtIndex:[park.typeID intValue]];
+    
+    
     
 
     NSString *str = [NSString stringWithFormat:@"%@", _parkingSpotToPass.favorit];

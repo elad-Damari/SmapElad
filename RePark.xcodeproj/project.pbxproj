@@ -81,6 +81,8 @@
 		C73622241A1A1953002A6B3A /* ParkReservationDetailsPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = C73622211A1A1953002A6B3A /* ParkReservationDetailsPopup.m */; };
 		C736222D1A1A3B5A002A6B3A /* PXAlertView+Customization.m in Sources */ = {isa = PBXBuildFile; fileRef = C736222A1A1A3B5A002A6B3A /* PXAlertView+Customization.m */; };
 		C736222E1A1A3B5A002A6B3A /* PXAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = C736222C1A1A3B5A002A6B3A /* PXAlertView.m */; };
+		C758A7AD1A1D1B0B00B34F52 /* AddNewPark.m in Sources */ = {isa = PBXBuildFile; fileRef = C758A7AB1A1D1B0B00B34F52 /* AddNewPark.m */; };
+		C758A7AE1A1D1B0B00B34F52 /* AddNewPark.xib in Resources */ = {isa = PBXBuildFile; fileRef = C758A7AC1A1D1B0B00B34F52 /* AddNewPark.xib */; };
 		C760BB061A1B479800ABFBC1 /* MyParksCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C760BB051A1B479800ABFBC1 /* MyParksCell.m */; };
 		C77D64FD1A1CF3CC00C2CC46 /* initializeDataBase.plist in Resources */ = {isa = PBXBuildFile; fileRef = C77D64FC1A1CF3CC00C2CC46 /* initializeDataBase.plist */; };
 		C77D65011A1D028800C2CC46 /* MyParkDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = C77D64FF1A1D028800C2CC46 /* MyParkDetails.m */; };
@@ -117,6 +119,8 @@
 		C7F933C01A14FA9900FACBFF /* ParkDetailPopUp.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F933BB1A14FA9900FACBFF /* ParkDetailPopUp.m */; };
 		C7F933C11A14FA9900FACBFF /* ParkListPopUpController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F933BD1A14FA9900FACBFF /* ParkListPopUpController.m */; };
 		C7F933C21A14FA9900FACBFF /* StartParkingPopUp.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F933BF1A14FA9900FACBFF /* StartParkingPopUp.m */; };
+		C7FF21C81A1E567600BA8349 /* AddNewCar.m in Sources */ = {isa = PBXBuildFile; fileRef = C7FF21C61A1E567600BA8349 /* AddNewCar.m */; };
+		C7FF21C91A1E567600BA8349 /* AddNewCar.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7FF21C71A1E567600BA8349 /* AddNewCar.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -252,6 +256,9 @@
 		C736222A1A1A3B5A002A6B3A /* PXAlertView+Customization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PXAlertView+Customization.m"; sourceTree = "<group>"; };
 		C736222B1A1A3B5A002A6B3A /* PXAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PXAlertView.h; sourceTree = "<group>"; };
 		C736222C1A1A3B5A002A6B3A /* PXAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PXAlertView.m; sourceTree = "<group>"; };
+		C758A7AA1A1D1B0B00B34F52 /* AddNewPark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNewPark.h; sourceTree = "<group>"; };
+		C758A7AB1A1D1B0B00B34F52 /* AddNewPark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNewPark.m; sourceTree = "<group>"; };
+		C758A7AC1A1D1B0B00B34F52 /* AddNewPark.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddNewPark.xib; sourceTree = "<group>"; };
 		C760BB041A1B479800ABFBC1 /* MyParksCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyParksCell.h; sourceTree = "<group>"; };
 		C760BB051A1B479800ABFBC1 /* MyParksCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyParksCell.m; sourceTree = "<group>"; };
 		C77D64FC1A1CF3CC00C2CC46 /* initializeDataBase.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = initializeDataBase.plist; sourceTree = "<group>"; };
@@ -302,6 +309,9 @@
 		C7F933BD1A14FA9900FACBFF /* ParkListPopUpController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParkListPopUpController.m; sourceTree = "<group>"; };
 		C7F933BE1A14FA9900FACBFF /* StartParkingPopUp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartParkingPopUp.h; sourceTree = "<group>"; };
 		C7F933BF1A14FA9900FACBFF /* StartParkingPopUp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartParkingPopUp.m; sourceTree = "<group>"; };
+		C7FF21C51A1E567600BA8349 /* AddNewCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNewCar.h; sourceTree = "<group>"; };
+		C7FF21C61A1E567600BA8349 /* AddNewCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNewCar.m; sourceTree = "<group>"; };
+		C7FF21C71A1E567600BA8349 /* AddNewCar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddNewCar.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -581,6 +591,10 @@
 				C7F88F4B1A1B2A4600CD3F3B /* MyParksList.m */,
 				C77D64FE1A1D028800C2CC46 /* MyParkDetails.h */,
 				C77D64FF1A1D028800C2CC46 /* MyParkDetails.m */,
+				C758A7AA1A1D1B0B00B34F52 /* AddNewPark.h */,
+				C758A7AB1A1D1B0B00B34F52 /* AddNewPark.m */,
+				C7FF21C51A1E567600BA8349 /* AddNewCar.h */,
+				C7FF21C61A1E567600BA8349 /* AddNewCar.m */,
 			);
 			name = "Right Menu";
 			sourceTree = "<group>";
@@ -626,10 +640,12 @@
 				C792CC651A18FB3100C64062 /* ParkReservationSearchPopup.xib */,
 				C72A635C1A1A0481006A8DF5 /* ParkResrvationListPopup.xib */,
 				C73622201A1A1953002A6B3A /* ParkReservationDetailsPopup.xib */,
+				C71B9AE31A1B988D00AF2439 /* ParkDetailsForOrder.xib */,
 				C7ED24351A1A88A800535297 /* ShowMyCarsPopup.xib */,
 				C7F88F4C1A1B2A4600CD3F3B /* MyParksList.xib */,
-				C71B9AE31A1B988D00AF2439 /* ParkDetailsForOrder.xib */,
 				C77D65001A1D028800C2CC46 /* MyParkDetails.xib */,
+				C758A7AC1A1D1B0B00B34F52 /* AddNewPark.xib */,
+				C7FF21C71A1E567600BA8349 /* AddNewCar.xib */,
 			);
 			name = XIB;
 			sourceTree = "<group>";
@@ -791,6 +807,7 @@
 				5062B9EB1A07791F00C9E99A /* Parking.png in Resources */,
 				50A9D58B1A0A05E20017F354 /* Alef-Regular.ttf in Resources */,
 				C7ED24371A1A88A800535297 /* ShowMyCarsPopup.xib in Resources */,
+				C758A7AE1A1D1B0B00B34F52 /* AddNewPark.xib in Resources */,
 				C7F213121A15325A00E6833A /* openParkingGatePopup.xib in Resources */,
 				C70DC93C1A139F48007E305E /* ParkingSupportPopup.xib in Resources */,
 				C7E62DF11A1AF73B00C3416B /* menuChat.png in Resources */,
@@ -822,6 +839,7 @@
 				C72A635E1A1A0481006A8DF5 /* ParkResrvationListPopup.xib in Resources */,
 				C7E62DE61A1AECEA00C3416B /* menuCloseOn.png in Resources */,
 				C7E62DF41A1AF73B00C3416B /* menuUsers.png in Resources */,
+				C7FF21C91A1E567600BA8349 /* AddNewCar.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -863,6 +881,7 @@
 				50FC55FA1A0D4F5D00D75A96 /* UIViewController+MJPopupViewController.m in Sources */,
 				50C5CB691A079F3800D43730 /* AFSecurityPolicy.m in Sources */,
 				50A9D5861A0A01E10017F354 /* UIFont+IBCustomFonts.m in Sources */,
+				C7FF21C81A1E567600BA8349 /* AddNewCar.m in Sources */,
 				C70DC93B1A139F48007E305E /* ParkingSupportPopup.m in Sources */,
 				C7D31EE01A1ABEE700DFD4CD /* CarListCellTableViewCell.m in Sources */,
 				50C5CB651A079F3800D43730 /* AFHTTPRequestOperation.m in Sources */,
@@ -879,6 +898,7 @@
 				50A9D5A21A0A489B0017F354 /* ResetPasswordController.m in Sources */,
 				50AB945F1A064EB800EEBB2C /* main.m in Sources */,
 				502F3DFC1A0B78B300BD4840 /* MZFormSheetSegue.m in Sources */,
+				C758A7AD1A1D1B0B00B34F52 /* AddNewPark.m in Sources */,
 				C736222E1A1A3B5A002A6B3A /* PXAlertView.m in Sources */,
 				C70DC9161A138ECA007E305E /* Park.m in Sources */,
 				502F3DFD1A0B78B300BD4840 /* MZTransition.m in Sources */,

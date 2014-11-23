@@ -19,7 +19,7 @@
     NSString *path  = [[NSBundle mainBundle] pathForResource:@"initializeDataBase" ofType:@"plist"];
     dataBase = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
     
-    [[NSUserDefaults standardUserDefaults] setObject:@"bec80288fe84f585cb83dda71cabe1a351e1c8fe27bd68e688a9aa0dffaf9ecf30353036383331353431"
+    [[NSUserDefaults standardUserDefaults] setObject:@"fbd93b9326671f9fb67f420f33ce5d39066dce0f3dcf3874447c79148ad4db9d2b32353631323334353637"
                                               forKey:kAccessToken];
     
     [[NSUserDefaults standardUserDefaults] setObject:@"homeScreen" forKey:@"whichList" ];
@@ -28,7 +28,7 @@
     
     [[NSUserDefaults standardUserDefaults] setObject:@"0505906366" forKey:@"parkOwnerNumber"];
     
-    [[NSUserDefaults standardUserDefaults] setObject:@"1"          forKey:@"defaultCarId"];
+    [[NSUserDefaults standardUserDefaults] setObject:@"2"          forKey:@"defaultCarId"];
     
     [[NSUserDefaults standardUserDefaults] setObject:@"11"          forKey:@"userType"];
     

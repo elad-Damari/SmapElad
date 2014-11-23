@@ -17,3 +17,13 @@
 @property (assign, nonatomic) id <MJPopUpControllerDelegate> delegate;
 
 @end
+
+
+
+@protocol MJPopUpControllerDelegate <NSObject>
+
+@optional
+
+- (void) popUpCar:(ShowMyCarsPopup *)popUpController;
+
+@end
