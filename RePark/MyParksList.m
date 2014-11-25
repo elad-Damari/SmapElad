@@ -88,6 +88,8 @@
             
             Car *car = [_carList objectAtIndex:indexPath.row];
             
+            
+            
             cell.carIdLabel.text = car.carNumber;
             
             NSString *type = [NSString stringWithFormat:@"%@", car.carTypeID];
@@ -115,6 +117,8 @@
     Park *park = [self.list objectAtIndex:indexPath.row];
     
     NSString *taken = [NSString stringWithFormat:@"%@", park.isTakenNow];
+    
+    NSLog(@" taken status is: %@", park.isTakenNow);
     
     if ([taken isEqualToString:@"1"])
         
@@ -238,7 +242,20 @@
             Park *park = [[Park alloc]initWithInfo:dic];
             
             Car  *car  = [[Car  alloc]initWithInfo:dic];
-
+            
+            if ([car.carNumber isKindOfClass:[NSNull class]])
+                
+            {
+              
+                park.isTakenNow = @"0";
+                
+            }
+            
+            else
+            {
+                park.isTakenNow = @"1";
+            }
+            
             [carsArray addObject:car];
             
             [parksArray addObject:park];
@@ -362,9 +379,19 @@
 
 {
     
-     NSLog(@" myParkDetails ");
+    CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:_myParksTableView];
+    NSIndexPath *indexPath = [_myParksTableView indexPathForRowAtPoint:buttonPosition];
+    if (indexPath != nil)
+        
+    {
     
-    // wait for missing fields from server
+        Park *park = [self.list    objectAtIndex:indexPath.row];
+    
+        Car  *car  = [self.carList objectAtIndex:indexPath.row];
+    
+        [self.delegate popUp:self clickedMyPark:park withCar:car];
+        
+    }
     
     
 }

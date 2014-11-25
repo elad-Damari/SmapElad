@@ -44,7 +44,18 @@
         
     }
     
-    //self.carImageView = car.carImagePath;
+    
+    
+    NSLog(@"car image is: %@" ,car.carImagePath);
+    
+    NSString *serverAddress  = kServerAdrress;
+    NSString *str            = [serverAddress substringToIndex:[serverAddress length]-11];
+    NSString *imageUrlString = [NSString stringWithFormat:@"%@%@", str, car.carImagePath];
+    NSURL *url = [NSURL URLWithString:imageUrlString];
+    NSData *data = [[NSData alloc] initWithContentsOfURL:url];
+    carImageView.image  = [UIImage imageWithData:data];
+    
+    
     
 }
 

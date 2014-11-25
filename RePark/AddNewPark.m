@@ -28,8 +28,8 @@
     NSDate                  *dt;
     
     NSMutableArray          *slotsArray;
-    NSMutableDictionary     *slotsIndex;
-    NSMutableDictionary     *slotsTimes;
+    //NSMutableDictionary     *slotsIndex;
+    NSMutableDictionary     *slotsIndexFromDic;
     NSMutableDictionary     *parametersDictionary;
     NSString                *chosenItem;
     
@@ -88,6 +88,13 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *getTypeTitle;
 
+@property (strong, nonatomic) IBOutlet UIButton *addParkImageLabel;
+
+
+
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+
+@property (strong, nonatomic)   NSMutableDictionary *slotsIndex;
 
 
 
@@ -111,6 +118,8 @@
 
 - (IBAction)getTypeButton:(id)sender;
 
+- (IBAction)addParkImageButton:(id)sender;
+
 
 - (IBAction)cancelButton:(id)sender;
 
@@ -123,7 +132,7 @@
 
 @implementation AddNewPark
 
-@synthesize mainView;
+@synthesize mainView, slotsIndex;
 
 
 
@@ -133,9 +142,11 @@
     
     [super viewDidLoad];
     
-    [self setViewsOnScreen];
+    slotsIndex = [[NSMutableDictionary alloc] init];
     
     [self initialRelevantObjects];
+    
+    [self setViewsOnScreen];
     
     
     
@@ -144,7 +155,8 @@
 
 - (void) setViewsOnScreen
 {
-    
+
+
     [_timesPickerView setTransform:CGAffineTransformMakeScale(1.0,0.7)];
     
     [_timesPickerView setBackgroundColor:[UIColor whiteColor]];
@@ -183,11 +195,122 @@
     _getTopTitle.titleLabel.textAlignment  = NSTextAlignmentCenter;
     
     _getTypeTitle.titleLabel.textAlignment = NSTextAlignmentCenter;
-    
+
     
     // at the moment, client doesn't want user to enter price per day & price per hour must be 5 nis.
 
     _pricePerHour.enabled = NO;
+    
+    
+    
+    
+    
+    
+    /*
+     
+     [parametersDictionary setObject:lat                           forKey:kLatitude];
+     [parametersDictionary setObject:lng                           forKey:kLongtitude];
+     [parametersDictionary setObject:_parkAddressLabel.text        forKey:kAddressID];
+     
+     [parametersDictionary setObject:@"0"                          forKey:kPricePerDay];
+     [parametersDictionary setObject:@"5"                          forKey:kPricePerHour];
+     [parametersDictionary setObject:_pricePerDay.text             forKey:kParkComments];
+     [parametersDictionary setObject:slotsIndex                    forKey:@"parkSlots"];
+     
+     [parametersDictionary setObject:selectedImage                 forKey:@"parkImage"];
+     [parametersDictionary setObject:@"Y"                          forKey:@"buildingImage"];
+     [parametersDictionary setObject:@"0536244266"                 forKey:@"gatePhone"];
+     
+     
+     */
+    
+    if (_dictionary)
+        
+    {
+        
+        if ([_dictionary objectForKey:@"parkSlots"])
+        {
+            slotsIndex = [_dictionary objectForKey:@"parkSlots"];
+            
+            NSArray *arr = [[NSArray alloc] initWithArray:[appDelegate.dataBase objectForKey:@"days"]];
+            
+            for (int i = 0; i< [[slotsIndex allKeys] count]; i++)
+            {
+                
+                NSDictionary *slotTime = [[NSDictionary alloc] initWithDictionary:[slotsIndex objectForKey:[NSString stringWithFormat:@"%d", i]]];
+
+                NSString *dayNumber = [NSString stringWithFormat:@"%@", [slotTime objectForKey:@"day"]];
+
+                NSString *dayName = [arr objectAtIndex:[dayNumber intValue]];
+
+                NSString *slotString = [NSString stringWithFormat:@"%@ , %@ - %@",
+                                        dayName,
+                                        [slotTime objectForKey:kStartTime],
+                                        [slotTime objectForKey:kEndTime]];
+                
+                [[slotsArray objectAtIndex:i] setText:slotString];
+                
+                [[slotsArray objectAtIndex:i] setHidden:NO];
+                
+                slotsCounter = [[_dictionary objectForKey:@"slotsCounter"] intValue];
+                
+                
+            }
+        }
+        
+        if ([_dictionary objectForKey:kAddressID])
+        {
+
+            _parkAddressLabel.text = [_dictionary objectForKey:kAddressID];
+            
+            addressGeo.latitude    = [[_dictionary objectForKey:kLatitude]   floatValue];
+            
+            addressGeo.longitude    = [[_dictionary objectForKey:kLongtitude] floatValue];
+            
+        }
+        
+        if ([_dictionary objectForKey:kParkComments])
+        {
+            _pricePerDay.text = [_dictionary objectForKey:kParkComments];
+            [parametersDictionary setObject:_pricePerDay.text forKey:kParkComments];
+        }
+        
+        if ([_dictionary objectForKey:kParkTypeID])
+        {
+            [parametersDictionary setObject:[_dictionary objectForKey:kParkTypeID] forKey:kParkTypeID];
+            NSString *str = [_dictionary objectForKey:kParkTypeID];
+            _getTypeTitle.titleLabel.text =
+            [[appDelegate.dataBase objectForKey:kParkTypeID] objectAtIndex:[str intValue]];
+        }
+        
+        if ([_dictionary objectForKey:kParkTopID])
+        {
+            [parametersDictionary setObject:[_dictionary objectForKey:kParkTopID] forKey:kParkTopID];
+            NSString *str = [_dictionary objectForKey:kParkTopID];
+            _getTopTitle.titleLabel.text =
+            [[appDelegate.dataBase objectForKey:kParkTopID] objectAtIndex:[str intValue]];
+        }
+        
+        if ([_dictionary objectForKey:kGateID])
+        {
+            [parametersDictionary setObject:[_dictionary objectForKey:kGateID] forKey:kGateID];
+            NSString *str = [_dictionary objectForKey:kGateID];
+            _getGateTitle.titleLabel.text =
+            [[appDelegate.dataBase objectForKey:kGateID] objectAtIndex:[str intValue]];
+        }
+        
+        if ([_dictionary objectForKey:kSizeID])
+        {
+            [parametersDictionary setObject:[_dictionary objectForKey:kSizeID] forKey:kSizeID];
+            NSString *str = [_dictionary objectForKey:kSizeID];
+            _getSizeTitle.titleLabel.text =
+            [[appDelegate.dataBase objectForKey:kSizeID] objectAtIndex:[str intValue]];
+        }
+        
+        _imageView.image      = [_dictionary objectForKey:@"image"];
+        
+        // add image to parametersDictionary...
+    }
 }
 
 - (void) initialRelevantObjects
@@ -204,17 +327,13 @@
     
     slotsCounter = 0;
     
-    slotsArray   = [[NSMutableArray alloc] initWithObjects:_day1SlotLabel,
-                    _day2SlotLabel,
-                    _day3SlotLabel,
-                    _day4SlotLabel,
-                    _day5SlotLabel,
-                    _day6SlotLabel,
-                    _day7SlotLabel,nil];
-    
-    slotsIndex = [[NSMutableDictionary alloc] init];
-    
-    slotsTimes = [[NSMutableDictionary alloc] init];
+    slotsArray   = [[NSMutableArray alloc] initWithObjects: _day1SlotLabel,
+                                                            _day2SlotLabel,
+                                                            _day3SlotLabel,
+                                                            _day4SlotLabel,
+                                                            _day5SlotLabel,
+                                                            _day6SlotLabel,
+                                                            _day7SlotLabel,nil];
     
     parametersDictionary = [[NSMutableDictionary alloc] init];
     
@@ -231,6 +350,8 @@
     [_getSizeTitle      setHidden:NO];
     [_getTopTitle       setHidden:NO];
     [_getTypeTitle      setHidden:NO];
+    [_addParkImageLabel setHidden:NO];
+    [_imageView         setHidden:NO];
 
     
     if (flag == 1)
@@ -333,6 +454,10 @@
     [_getTopTitle        setHidden:YES];
     
     [_getTypeTitle       setHidden:YES];
+    
+    [_addParkImageLabel  setHidden:YES];
+    
+    [_imageView          setHidden:YES];
    
     
 }
@@ -361,6 +486,10 @@
     
     [_getTypeTitle      setHidden:YES];
     
+    [_addParkImageLabel setHidden:YES];
+    
+    [_imageView         setHidden:YES];
+    
 }
 
 
@@ -388,6 +517,10 @@
     
     [_getTypeTitle      setHidden:YES];
     
+    [_addParkImageLabel setHidden:YES];
+    
+    [_imageView         setHidden:YES];
+    
     
 }
 
@@ -400,16 +533,24 @@
     // set slots dictionary for server request
     
     NSString *index = [NSString stringWithFormat:@"%d", slotsCounter];
-    NSString *dayNumber = [NSString stringWithFormat:@"%@", [[appDelegate.dataBase objectForKey:@"days"] objectForKey:_chooseDayTitle.titleLabel.text]];
     
+    NSArray *arr = [[NSArray alloc] initWithArray:[appDelegate.dataBase objectForKey:@"days"]];
+    
+    NSString *dayNumber = [NSString stringWithFormat:@"%lu",
+                           (unsigned long)[arr indexOfObject:_chooseDayTitle.titleLabel.text]];
+    
+    NSMutableDictionary *slotsTimes = [[NSMutableDictionary alloc] init];
     
     [slotsTimes setObject:dayNumber                         forKey:@"day"];
     [slotsTimes setObject:_chooseStartTitle.titleLabel.text forKey:@"startTime"];
     [slotsTimes setObject:_chooseEndTitle.titleLabel.text   forKey:@"endTime"];
-
+    
     [slotsIndex setObject:slotsTimes forKey:index];
     
-    NSLog(@"slots sre: %@", slotsIndex);
+    slotsTimes = nil;
+    
+    
+    NSLog(@"\n slots arrrrre: %@", slotsIndex);
     
     // set views on screen
 
@@ -570,6 +711,43 @@
     
 }
 
+
+
+
+
+
+
+
+- (IBAction)addParkImageButton:(id)sender
+
+{
+    
+    PXAlertView *alert = [PXAlertView showAlertWithTitle:@"שים לב !"
+                                                 message:@"האם תרצלה לצלם תמונה חדשה? \n או לבחור מתוך אלבום התמונות שלך?"
+                                             cancelTitle:@"צלם תמונה חדשה"
+                                             otherTitles:@[@"בחר מתוך האלבום"]
+                                              completion:^(BOOL cancelled, NSInteger buttonIndex) {
+                                                  if (buttonIndex == 0)
+                                                  {
+                                                      [self takePhoto];
+                                                  }
+                                                  else if (buttonIndex == 1)
+                                                  {
+                                                      [self selectPhoto];
+                                                  }}];
+    
+    [alert setAllButtonsBackgroundColor:[UIColor grayColor]];
+
+}
+
+
+
+
+
+
+
+
+
 - (IBAction)cancelButton:(id)sender
 {
     
@@ -594,7 +772,7 @@
         jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     }
     
-    NSLog(@"json; %@", parametersDictionary);
+    NSLog(@"** json; %@", jsonString);
     
     
     // parmaeters for new park
@@ -609,10 +787,6 @@
     
     [parametersDictionary setObject:accessToken                   forKey:kAccessToken];
     [parametersDictionary setObject:kAddPark                      forKey:kService];
-    //[parametersDictionary setObject:_getSizeTitle.titleLabel.text forKey:kSizeID];
-    //[parametersDictionary setObject:_getGateTitle.titleLabel.text forKey:kGateID];
-    //[parametersDictionary setObject:_getTopTitle.titleLabel.text  forKey:kParkTopID];
-    //[parametersDictionary setObject:_getTypeTitle.titleLabel.text forKey:kParkTypeID];
     
     [parametersDictionary setObject:lat                           forKey:kLatitude];
     [parametersDictionary setObject:lng                           forKey:kLongtitude];
@@ -623,7 +797,7 @@
     [parametersDictionary setObject:_pricePerDay.text             forKey:kParkComments];
     [parametersDictionary setObject:jsonString                    forKey:@"parkSlots"];
     
-    [parametersDictionary setObject:@"X"                          forKey:@"parkImage"];
+    //[parametersDictionary setObject:@"X"                          forKey:@"parkImage"];
     [parametersDictionary setObject:@"Y"                          forKey:@"buildingImage"];
     [parametersDictionary setObject:@"0536244266"                 forKey:@"gatePhone"];
     
@@ -631,27 +805,82 @@
     
 
     
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
-    [manager POST:kServerAdrress parameters:parametersDictionary success:^(AFHTTPRequestOperation *operation, id responseObject)
-     
-     {
-         
-         [self getDataFromResponse:responseObject];
-         
-     }
-     
-          failure:^(AFHTTPRequestOperation *operation, NSError *error)
-     
-     {
-         
-         NSLog(@"Error: %@", error);
-         
-         // ****************************************
-         // * call alert to show error             *
-         // ****************************************
-         
-     }];
+    
+    NSData *imageData = UIImageJPEGRepresentation(self.imageView.image, 0.5);
+
+    AFHTTPRequestOperationManager *manager = [[AFHTTPRequestOperationManager alloc]
+                                              initWithBaseURL:[NSURL URLWithString:kServerAdrress]];
+    
+    AFHTTPRequestOperation *op =[manager POST:@""
+                                   parameters:parametersDictionary
+                    constructingBodyWithBlock:^(id<AFMultipartFormData> formData)
+                                 {
+                                     //do not put image inside parameters dictionary as I did, but append it!
+                                     [formData appendPartWithFileData:imageData
+                                                                 name:@"parkImage"
+                                                             fileName:@"photo.jpg"
+                                                             mimeType:@"image/jpeg"];
+                                 }
+                                 
+                                      success:^(AFHTTPRequestOperation *operation, id responseObject)
+                                 {
+                                     NSLog(@"Success: %@ ***** %@", operation.responseString, responseObject);
+                                     
+                                     PXAlertView *alert =[PXAlertView showAlertWithTitle:@"בקשתך התקבלה בהצלחה !"
+                                                                                 message:@"החניה תתווסף מיד לרשימת החניות"
+                                                                             cancelTitle:@"אישור"
+                                                                              completion:^(BOOL cancelled, NSInteger buttonIndex)
+                                                          {
+                                                              
+                                                          }];
+                                     [alert setCancelButtonBackgroundColor:[UIColor lightGrayColor]];
+                                     
+                                     
+                                     [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationSlideRightRight];
+                                 }
+                                 
+                                      failure:^(AFHTTPRequestOperation *operation, NSError *error)
+                                 {
+                                     NSLog(@"Error: %@ ***** %@", operation.responseString, error);
+                                     
+                                     NSString *message = [NSString stringWithFormat:@"לצערנו לא היתה אפשרות להוסיף את החניה. \n xסיבת השגיאה היא: \n %@", operation.responseString];
+                                     PXAlertView *alert =[PXAlertView showAlertWithTitle:@"שים לב !"
+                                                                                 message:message
+                                                                             cancelTitle:@"אישור"
+                                                                              completion:^(BOOL cancelled, NSInteger buttonIndex)
+                                                          {
+                                                              
+                                                          }];
+                                     [alert setCancelButtonBackgroundColor:[UIColor lightGrayColor]];
+                                     
+                                     
+                                 }];
+    
+    [op start];
+
+    
+//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//
+//    [manager POST:kServerAdrress parameters:parametersDictionary success:^(AFHTTPRequestOperation *operation, id responseObject)
+//     
+//     {
+//         
+//         [self getDataFromResponse:responseObject];
+//         
+//     }
+//     
+//          failure:^(AFHTTPRequestOperation *operation, NSError *error)
+//     
+//     {
+//         
+//         NSLog(@"Error: %@", error);
+//         
+//         // ****************************************
+//         // * call alert to show error             *
+//         // ****************************************
+//         
+//     }];
     
 }
 
@@ -665,9 +894,6 @@
         
     {
 
-        
-
-        
         NSString *status = [dataDictionary objectForKey:@"status"];
         
         NSLog(@" status & message: \n %@ \n %@",status,  [dataDictionary objectForKey:@"message"]);
@@ -691,14 +917,13 @@
         else
             
         {
+            NSString *message = [NSString stringWithFormat:@"לצערנו לא היתה אפשרות להוסיף את החניה. \n xסיבת השגיאה היא: \n %@", [dataDictionary objectForKey:@"message"]];
             
             PXAlertView *alert =[PXAlertView showAlertWithTitle:@"בקשתך התקבלה במערכת."
-                                                        message:@"לצערנו, כרגע לא היתה אפשרות להוסיף את החניה."
+                                                        message:message
                                                     cancelTitle:@"אישור"
                                                      completion:^(BOOL cancelled, NSInteger buttonIndex)
                                  {
-                                     
-                                     [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationSlideRightRight];
                                      
                                  }];
             [alert setCancelButtonBackgroundColor:[UIColor lightGrayColor]];
@@ -845,6 +1070,69 @@
     
     return center;
 }
+
+#pragma mark - open camera roll Methods
+
+- (void)takePhoto
+{
+    
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    
+    [self presentViewController:picker animated:YES completion:NULL];
+    
+}
+
+- (void) selectPhoto
+{
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self presentViewController:picker animated:YES completion:NULL];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *selectedImage = info[UIImagePickerControllerEditedImage];
+    self.imageView.image = selectedImage;
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
+    NSString *lat = [NSString stringWithFormat:@"%f", addressGeo.latitude];
+    NSString *lng = [NSString stringWithFormat:@"%f", addressGeo.longitude];
+
+    [parametersDictionary setObject:lat                           forKey:kLatitude];
+    [parametersDictionary setObject:lng                           forKey:kLongtitude];
+    [parametersDictionary setObject:_parkAddressLabel.text        forKey:kAddressID];
+    
+    [parametersDictionary setObject:@"0"                          forKey:kPricePerDay];
+    [parametersDictionary setObject:@"5"                          forKey:kPricePerHour];
+    [parametersDictionary setObject:_pricePerDay.text             forKey:kParkComments];
+    [parametersDictionary setObject:slotsIndex                    forKey:@"parkSlots"];
+    
+    [parametersDictionary setObject:
+     [NSString stringWithFormat:@"%d",slotsCounter]               forKey:@"slotsCounter"];
+    
+    [parametersDictionary setObject:selectedImage                 forKey:@"image"];
+    [parametersDictionary setObject:@"Y"                          forKey:@"buildingImage"];
+    [parametersDictionary setObject:@"0536244266"                 forKey:@"gatePhone"];
+
+    [self.delegate popUp:self withParkData:parametersDictionary];
+}
+
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+}
+
+
+
+
+
+
 
 
 

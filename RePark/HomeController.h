@@ -14,6 +14,7 @@
 {
     CDSideBarController *sideBar;
 }
+@property (weak, nonatomic) IBOutlet UIView *bottomMenu;
 
 - (IBAction)openParkListPopUpController:(id)sender;
 

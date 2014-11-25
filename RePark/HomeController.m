@@ -122,16 +122,32 @@
 
 - (IBAction)openFilterMapMenuButton:(id)sender;
 
-
-
-
 - (IBAction)openFavoriteParksList:(id)sender;
+
+
+
+- (IBAction)openBottomMenu:(id)sender;
+
+- (IBAction)openLogout:(id)sender;
+
+- (IBAction)openCalender:(id)sender;
+
+- (IBAction)openAlert:(id)sender;
+
+- (IBAction)openHistory:(id)sender;
+
+- (IBAction)openSystem:(id)sender;
+
+- (IBAction)openProfile:(id)sender;
+
 
 @end
 
 
 
 @implementation HomeController
+
+@synthesize bottomMenu;
 
 
 #pragma mark - View lifecycle
@@ -155,12 +171,12 @@
     [self getUserLocation];
 
     
-    
-    NSArray *imageList = @[[UIImage imageNamed:@"menuChat.png"], [UIImage imageNamed:@"menuUsers.png"],
-                           [UIImage imageNamed:@"menuMap.png"], [UIImage imageNamed:@"menuClose.png"]];
-    
-    sideBar = [[CDSideBarController alloc] initWithImages:imageList];
-    sideBar.delegate = self;
+//    side bar methods...
+//    NSArray *imageList = @[[UIImage imageNamed:@"menuChat.png"], [UIImage imageNamed:@"menuUsers.png"],
+//                           [UIImage imageNamed:@"menuMap.png"], [UIImage imageNamed:@"menuClose.png"]];
+//    
+//    sideBar = [[CDSideBarController alloc] initWithImages:imageList];
+//    sideBar.delegate = self;
 
     
     
@@ -175,7 +191,7 @@
 {
     [super viewDidAppear:animated];
     
-    [sideBar insertMenuButtonOnView:[UIApplication sharedApplication].delegate.window atPosition:CGPointMake(self.view.frame.size.width - 72, 500)];
+    //[sideBar insertMenuButtonOnView:[UIApplication sharedApplication].delegate.window atPosition:CGPointMake(self.view.frame.size.width - 72, 500)];
 }
 
 
@@ -428,6 +444,133 @@
 
 
 
+
+
+
+
+
+
+- (IBAction)openBottomMenu:(id)sender
+
+{
+    
+    if (bottomMenu.frame.origin.y+ bottomMenu.frame.size.height > self.view.frame.size.height)
+        // menu is hidden at bottom ...
+    {
+        [UIView animateWithDuration:0.5
+                              delay:0.1
+                            options: UIViewAnimationCurveEaseIn
+                         animations:^
+         {
+             [bottomMenu setFrame:
+              CGRectMake(0, self.view.frame.size.height-70, self.view.frame.size.width, 70)];
+         }
+                         completion:^(BOOL finished)
+         {
+         }];
+    }
+    else                                 // menu is already opne...
+    {
+        [UIView animateWithDuration:0.5
+                              delay:0.1
+                            options: UIViewAnimationCurveEaseIn
+                         animations:^
+         {
+             [bottomMenu setFrame:
+              CGRectMake(0, self.view.frame.size.height-15, self.view.frame.size.width, 70)];
+         }
+                         completion:^(BOOL finished)
+         {
+         }];
+    }
+    
+    
+    
+    
+}
+
+
+
+
+- (IBAction)openLogout:(id)sender
+{
+    
+    NSLog(@"\n **** openLogout ");
+}
+
+
+
+
+
+
+- (IBAction)openCalender:(id)sender
+{
+    
+    NSLog(@"\n **** openCalender ");
+    
+    
+}
+
+
+
+
+
+
+- (IBAction)openAlert:(id)sender
+{
+    NSLog(@"\n **** openAlert ");
+    
+    
+    
+    
+}
+
+
+
+
+
+- (IBAction)openHistory:(id)sender
+
+{
+    NSLog(@"\n **** openHistory ");
+    
+    
+    
+}
+
+- (IBAction)openSystem:(id)sender
+
+{
+    NSLog(@"\n **** openSystem ");
+    
+    
+    
+}
+
+
+
+
+- (IBAction)openProfile:(id)sender
+
+{
+    NSLog(@"\n **** openProfile ");
+    
+    
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
 // handle park details after park list popup dissmised
 
 - (void)popUp:(ParkListPopUpController *)popUpController clickedPark:(Park *)park
@@ -647,9 +790,37 @@
     
     addNewCar           = [[AddNewCar alloc] init];
     
-    addNewCar.delegate = self;
+    addNewCar.delegate  = self;
     
     [self presentPopupViewController:addNewCar animationType:MJPopupViewAnimationSlideRightRight];
+    
+}
+
+- (void)popUp:(AddNewCar *)popUpController withData: (NSDictionary *) data
+{
+    [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationSlideLeftLeft];
+    
+    addNewCar           = [[AddNewCar alloc] init];
+    
+    addNewCar.delegate  = self;
+    
+    addNewCar.dictionary = data;
+    
+    [self presentPopupViewController:addNewCar animationType:MJPopupViewAnimationSlideRightRight];
+  
+}
+
+- (void)popUp:(AddNewPark *)popUpController withParkData: (NSDictionary *) data
+{
+    [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationSlideLeftLeft];
+    
+    addNewPark           = [[AddNewPark alloc] init];
+    
+    addNewPark.delegate  = self;
+    
+    addNewPark.dictionary = data;
+    
+    [self presentPopupViewController:addNewPark animationType:MJPopupViewAnimationSlideRightRight];
     
 }
 

@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddNewPark">
             <connections>
+                <outlet property="addParkImageLabel" destination="O9N-Rl-3b7" id="Rcl-qc-LLR"/>
                 <outlet property="addSlotTitle" destination="vE7-R4-hNT" id="82c-OL-QoB"/>
                 <outlet property="chooseDayTitle" destination="yhB-5Y-50P" id="EVC-Rc-Ft8"/>
                 <outlet property="chooseEndTitle" destination="Rz5-9M-h8v" id="TnY-wJ-DCQ"/>
@@ -22,6 +23,7 @@
                 <outlet property="getSizeTitle" destination="E7r-37-shh" id="Iq8-ce-byL"/>
                 <outlet property="getTopTitle" destination="z4z-7y-Ctw" id="vHY-uj-Q7N"/>
                 <outlet property="getTypeTitle" destination="OCk-OA-5Gf" id="hfH-Dr-dYo"/>
+                <outlet property="imageView" destination="PQM-IF-wsM" id="siP-aa-3hq"/>
                 <outlet property="mainView" destination="i5M-Pr-FkT" id="gAr-7m-4O6"/>
                 <outlet property="parkAddressLabel" destination="KuO-l2-NMd" id="LsA-FZ-yc2"/>
                 <outlet property="pickerChooseLabel" destination="2YF-7p-kJv" id="r1h-8h-Moc"/>
@@ -51,7 +53,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k6B-5D-vre">
-                            <rect key="frame" x="206" y="5" width="32" height="30"/>
+                            <rect key="frame" x="208" y="5" width="32" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" title="ביטול">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -77,7 +79,7 @@
                     </subviews>
                     <color key="backgroundColor" red="0.85532014270000001" green="0.85532014270000001" blue="0.85532014270000001" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="אנא הזן כתובת או לחץ על &quot;אני נמצא בחניה&quot;" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KuO-l2-NMd">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="אנא הזן כתובת " textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KuO-l2-NMd">
                     <rect key="frame" x="11" y="56" width="239" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -272,6 +274,21 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                         <action selector="pickerChooseButton:" destination="-1" eventType="touchUpInside" id="CS9-0J-5wB"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O9N-Rl-3b7">
+                    <rect key="frame" x="112" y="294" width="37" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.85532014270000001" green="0.85532014270000001" blue="0.85532014270000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="תמונה">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="addParkImageButton:" destination="-1" eventType="touchUpInside" id="vge-b7-36a"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PQM-IF-wsM">
+                    <rect key="frame" x="105" y="256" width="50" height="40"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>

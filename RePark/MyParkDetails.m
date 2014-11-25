@@ -16,9 +16,11 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *parkIdLabel;
 
-@property (weak, nonatomic) IBOutlet UILabel *parkAddressLabel;
-
 @property (weak, nonatomic) IBOutlet UILabel *parkIsTakenLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *pricePerHourLabel;
+
+
 
 
 @property (weak, nonatomic) IBOutlet UILabel *carIsInParkLabel;
@@ -64,9 +66,7 @@
 
 {
     
-    //_parkAddressLabel.text = _park.addressID;
-    
-    _parkAddressLabel.hidden = YES;
+    _pricePerHourLabel.text = [NSString stringWithFormat:@"%@", _park.pricePerHour];
     
     _parkIdLabel.text      = [NSString stringWithFormat:@"%@", _park.parkID];
     
@@ -101,10 +101,14 @@
         
     {
         
+        _carIsInParkLabel.text = @"כרגע אין רכב שחונה בחניה";
+        
         _parkIsTakenLabel.text = @"פנוי";
         
+        _parkIsTakenLabel.backgroundColor = [UIColor greenColor];
         
-        _carIsInParkLabel.hidden = YES;
+        
+        // _carIsInParkLabel.hidden = YES;
         
         _carNumberLavel.hidden   = YES;
         

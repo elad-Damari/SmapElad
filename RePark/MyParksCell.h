@@ -25,6 +25,8 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *parkIdLabel;
 
+
+
 - (void) configureCellWithMyPark: (Park *) park;
 
 @end

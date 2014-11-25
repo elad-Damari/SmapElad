@@ -3,22 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>days</key>
-	<dict>
-		<key>ראשון</key>
-		<string>0</string>
-		<key>שני</key>
-		<string>1</string>
-		<key>שלישי</key>
-		<string>2</string>
-		<key>רביעי</key>
-		<string>3</string>
-		<key>חמישי</key>
-		<string>4</string>
-		<key>שישי</key>
-		<string>5</string>
-		<key>שבת</key>
-		<string>6</string>
-	</dict>
+	<array>
+		<string>ראשון</string>
+		<string>שני</string>
+		<string>שלישי</string>
+		<string>רביעי</string>
+		<string>חמישי</string>
+		<string>שישי</string>
+		<string>שבת</string>
+	</array>
 	<key>userTypes</key>
 	<array>
 		<string></string>

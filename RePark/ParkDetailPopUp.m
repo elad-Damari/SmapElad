@@ -441,6 +441,17 @@
 - (void) setLabelsWithParkInfo: (Park *) park andParkDetails: (NSDictionary *) slots
 
 {
+    NSLog(@"\n ** park image path is: %@", park.parkImagePath);
+
+
+    NSString *serverAddress  = kServerAdrress;
+    NSString *servertrim     = [serverAddress substringToIndex:[serverAddress length]-11];
+    NSString *imageUrlString =
+    [NSString stringWithFormat:@"%@%@", servertrim, park.parkImagePath];
+    NSURL *url = [NSURL URLWithString:imageUrlString];
+    NSData *data = [[NSData alloc] initWithContentsOfURL:url];
+    _parkingImagView.image  = [UIImage imageWithData:data];
+
     
     _parkIdLabel.text       = park.parkID;
     
@@ -454,18 +465,6 @@
     // replace default values with values from initial methods...
     
     _parkDistanceLabel.text = [NSString stringWithFormat:@"%d",[park.distance intValue]];
-    
-//    _parkSizeLabel.text     = [[NSUserDefaults standardUserDefaults] objectForKey:
-//                                [NSString stringWithFormat:@"size%@", park.sizeID]];
-//
-//    _parkGateLabel.text     = [[NSUserDefaults standardUserDefaults] objectForKey:
-//                               [NSString stringWithFormat:@"gate%@", park.gateID]];
-//    
-//    _parkTopLabel.text      = [[NSUserDefaults standardUserDefaults] objectForKey:
-//                               [NSString stringWithFormat:@"top%@", park.topID]];
-//    
-//    _parkTypeLabel.text     = [[NSUserDefaults standardUserDefaults] objectForKey:
-//                               [NSString stringWithFormat:@"type%@", park.typeID]];
     
     _parkSizeLabel.text = [[appDelegate.dataBase objectForKey:kSizeID] objectAtIndex:[park.sizeID intValue]];
     

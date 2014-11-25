@@ -146,6 +146,8 @@
     
     Park *park = [self.list objectAtIndex:indexPath.row];
     
+    NSLog(@"\n ** park image path from parks list popup: %@", park.parkImagePath);
+    
     [self.delegate popUp:self clickedPark:park];
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

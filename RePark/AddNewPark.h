@@ -12,8 +12,21 @@
 
 
 @interface AddNewPark : UIViewController
-<UITextFieldDelegate>
+<UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+
+@property  NSDictionary *dictionary;
 
 @property (assign, nonatomic) id <MJPopUpControllerDelegate> delegate;
+
+@end
+
+
+
+
+@protocol MJPopUpControllerDelegate <NSObject>
+
+@optional
+
+- (void)popUp:(AddNewPark *)popUpController withParkData: (NSDictionary *) data;
 
 @end

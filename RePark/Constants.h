@@ -21,13 +21,14 @@ static NSString * const kGetParkSlots          = @"getParkSlots";
 static NSString * const kAddToFavorite         = @"addToFavorite";
 static NSString * const kDelFromFavorite       = @"delFromFavorite";
 static NSString * const kAddPark               = @"addPark";
+static NSString * const kAddCar                = @"addCar";
 static NSString * const kStartParkServiceKey   = @"startPark";
 static NSString * const kEndParkServiceKey     = @"endPark";
 static NSString * const kOpenParkGate          = @"openParkGate";
 static NSString * const kAskForExtension       = @"askForExtension";
 static NSString * const kGetMyFavoriteParks    = @"getMyFavoriteParks";
 static NSString * const kGetMyCars             = @"getMyCars";
-static NSString * const kGetMyParks             = @"getMyParks";
+static NSString * const kGetMyParks            = @"getMyParks";
 
 
 #pragma mark - Server Keys For Requests

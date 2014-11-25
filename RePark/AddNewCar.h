@@ -11,7 +11,21 @@
 @protocol MJPopUpControllerDelegate;
 
 @interface AddNewCar : UIViewController
+<UITextFieldDelegate,UIPickerViewDataSource, UIPickerViewDelegate,
+UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+
+@property  NSDictionary *dictionary;
 
 @property (assign, nonatomic) id <MJPopUpControllerDelegate> delegate;
+
+@end
+
+
+
+@protocol MJPopUpControllerDelegate <NSObject>
+
+@optional
+
+- (void)popUp:(AddNewCar *)popUpController withData: (NSDictionary *) data;
 
 @end

@@ -19,7 +19,7 @@
     NSString *path  = [[NSBundle mainBundle] pathForResource:@"initializeDataBase" ofType:@"plist"];
     dataBase = [[NSMutableDictionary alloc] initWithContentsOfFile:path];
     
-    [[NSUserDefaults standardUserDefaults] setObject:@"fbd93b9326671f9fb67f420f33ce5d39066dce0f3dcf3874447c79148ad4db9d2b32353631323334353637"
+    [[NSUserDefaults standardUserDefaults] setObject:@"03929ded0158ddd4403b498152370ab55130d98deb1f0bf6853a5f50ba8621282b393732353439353439373634"
                                               forKey:kAccessToken];
     
     [[NSUserDefaults standardUserDefaults] setObject:@"homeScreen" forKey:@"whichList" ];

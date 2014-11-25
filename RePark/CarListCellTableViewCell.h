@@ -12,13 +12,13 @@
 
 @interface CarListCellTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *carTypeLabel;
+@property (strong, nonatomic) IBOutlet UILabel *carTypeLabel;
 
-@property (weak, nonatomic) IBOutlet UILabel *CarNumberLabel;
+@property (strong, nonatomic) IBOutlet UILabel *CarNumberLabel;
 
-@property (weak, nonatomic) IBOutlet UILabel *isDefaultLabel;
+@property (strong, nonatomic) IBOutlet UILabel *isDefaultLabel;
 
-@property (weak, nonatomic) IBOutlet UIImageView *carImageView;
+@property (strong, nonatomic) IBOutlet UIImageView *carImageView;
 
 
 - (void) configureCellWithCar: (Car *) car;

@@ -73,6 +73,13 @@
 		C70DC9291A1392B8007E305E /* HomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = C70DC9281A1392B8007E305E /* HomeController.m */; };
 		C70DC93B1A139F48007E305E /* ParkingSupportPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = C70DC9391A139F48007E305E /* ParkingSupportPopup.m */; };
 		C70DC93C1A139F48007E305E /* ParkingSupportPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = C70DC93A1A139F48007E305E /* ParkingSupportPopup.xib */; };
+		C7136DE81A24A3DE00D20AC6 /* slider.png in Resources */ = {isa = PBXBuildFile; fileRef = C7136DE71A24A3DE00D20AC6 /* slider.png */; };
+		C7136DF11A24AE8500D20AC6 /* system_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7136DEB1A24AE8500D20AC6 /* system_button@2x.png */; };
+		C7136DF21A24AE8500D20AC6 /* calender_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7136DEC1A24AE8500D20AC6 /* calender_button@2x.png */; };
+		C7136DF31A24AE8500D20AC6 /* history_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7136DED1A24AE8500D20AC6 /* history_button@2x.png */; };
+		C7136DF41A24AE8500D20AC6 /* profile_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7136DEE1A24AE8500D20AC6 /* profile_button@2x.png */; };
+		C7136DF51A24AE8500D20AC6 /* logout_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7136DEF1A24AE8500D20AC6 /* logout_button@2x.png */; };
+		C7136DF71A24B0B700D20AC6 /* alert_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C7136DF61A24B0B700D20AC6 /* alert_button@2x.png */; };
 		C71B9AE41A1B988D00AF2439 /* ParkDetailsForOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = C71B9AE21A1B988D00AF2439 /* ParkDetailsForOrder.m */; };
 		C71B9AE51A1B988D00AF2439 /* ParkDetailsForOrder.xib in Resources */ = {isa = PBXBuildFile; fileRef = C71B9AE31A1B988D00AF2439 /* ParkDetailsForOrder.xib */; };
 		C72A635D1A1A0481006A8DF5 /* ParkResrvationListPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = C72A635B1A1A0481006A8DF5 /* ParkResrvationListPopup.m */; };
@@ -243,6 +250,13 @@
 		C70DC9381A139F48007E305E /* ParkingSupportPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParkingSupportPopup.h; sourceTree = "<group>"; };
 		C70DC9391A139F48007E305E /* ParkingSupportPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParkingSupportPopup.m; sourceTree = "<group>"; };
 		C70DC93A1A139F48007E305E /* ParkingSupportPopup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParkingSupportPopup.xib; sourceTree = "<group>"; };
+		C7136DE71A24A3DE00D20AC6 /* slider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slider.png; sourceTree = "<group>"; };
+		C7136DEB1A24AE8500D20AC6 /* system_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "system_button@2x.png"; sourceTree = "<group>"; };
+		C7136DEC1A24AE8500D20AC6 /* calender_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calender_button@2x.png"; sourceTree = "<group>"; };
+		C7136DED1A24AE8500D20AC6 /* history_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "history_button@2x.png"; sourceTree = "<group>"; };
+		C7136DEE1A24AE8500D20AC6 /* profile_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile_button@2x.png"; sourceTree = "<group>"; };
+		C7136DEF1A24AE8500D20AC6 /* logout_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logout_button@2x.png"; sourceTree = "<group>"; };
+		C7136DF61A24B0B700D20AC6 /* alert_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alert_button@2x.png"; sourceTree = "<group>"; };
 		C71B9AE11A1B988D00AF2439 /* ParkDetailsForOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParkDetailsForOrder.h; sourceTree = "<group>"; };
 		C71B9AE21A1B988D00AF2439 /* ParkDetailsForOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParkDetailsForOrder.m; sourceTree = "<group>"; };
 		C71B9AE31A1B988D00AF2439 /* ParkDetailsForOrder.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParkDetailsForOrder.xib; sourceTree = "<group>"; };
@@ -665,6 +679,7 @@
 		C70DC9261A1391C5007E305E /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C7136DE91A24AD1800D20AC6 /* bottom */,
 				C70DC9221A13908B007E305E /* parkimage.jpg */,
 				C7D31EE21A1AC81100DFD4CD /* car.jpg */,
 				C70DC9231A13908B007E305E /* buildingimage.jpg */,
@@ -684,6 +699,20 @@
 				C7D31EDF1A1ABEE700DFD4CD /* CarListCellTableViewCell.xib */,
 			);
 			name = "Custom Cells";
+			sourceTree = "<group>";
+		};
+		C7136DE91A24AD1800D20AC6 /* bottom */ = {
+			isa = PBXGroup;
+			children = (
+				C7136DF61A24B0B700D20AC6 /* alert_button@2x.png */,
+				C7136DEB1A24AE8500D20AC6 /* system_button@2x.png */,
+				C7136DEC1A24AE8500D20AC6 /* calender_button@2x.png */,
+				C7136DED1A24AE8500D20AC6 /* history_button@2x.png */,
+				C7136DEE1A24AE8500D20AC6 /* profile_button@2x.png */,
+				C7136DEF1A24AE8500D20AC6 /* logout_button@2x.png */,
+				C7136DE71A24A3DE00D20AC6 /* slider.png */,
+			);
+			name = bottom;
 			sourceTree = "<group>";
 		};
 		C73622251A1A3AE0002A6B3A /* PXAlertView */ = {
@@ -803,6 +832,7 @@
 				C7E62DF51A1AF73B00C3416B /* menuIconOn.png in Resources */,
 				50AB946B1A064EB800EEBB2C /* Images.xcassets in Resources */,
 				C70DC9241A13908B007E305E /* parkimage.jpg in Resources */,
+				C7136DF51A24AE8500D20AC6 /* logout_button@2x.png in Resources */,
 				50EADE5C1A0CE0710083493E /* Default-568h@2x.png in Resources */,
 				5062B9EB1A07791F00C9E99A /* Parking.png in Resources */,
 				50A9D58B1A0A05E20017F354 /* Alef-Regular.ttf in Resources */,
@@ -810,6 +840,8 @@
 				C758A7AE1A1D1B0B00B34F52 /* AddNewPark.xib in Resources */,
 				C7F213121A15325A00E6833A /* openParkingGatePopup.xib in Resources */,
 				C70DC93C1A139F48007E305E /* ParkingSupportPopup.xib in Resources */,
+				C7136DF31A24AE8500D20AC6 /* history_button@2x.png in Resources */,
+				C7136DF11A24AE8500D20AC6 /* system_button@2x.png in Resources */,
 				C7E62DF11A1AF73B00C3416B /* menuChat.png in Resources */,
 				C70DC9201A13904B007E305E /* ParkDetailPopUp.xib in Resources */,
 				C71B9AE51A1B988D00AF2439 /* ParkDetailsForOrder.xib in Resources */,
@@ -821,6 +853,9 @@
 				C7D31EE31A1AC81100DFD4CD /* car.jpg in Resources */,
 				C70DC91E1A13904A007E305E /* ParkListPopUpController.xib in Resources */,
 				C7E62DF31A1AF73B00C3416B /* menuMap.png in Resources */,
+				C7136DE81A24A3DE00D20AC6 /* slider.png in Resources */,
+				C7136DF41A24AE8500D20AC6 /* profile_button@2x.png in Resources */,
+				C7136DF71A24B0B700D20AC6 /* alert_button@2x.png in Resources */,
 				C7E62DE81A1AECEA00C3416B /* menuUsersOn.png in Resources */,
 				C7E62DE91A1AECEA00C3416B /* menuIcon.png in Resources */,
 				C792CC671A18FB3100C64062 /* ParkReservationSearchPopup.xib in Resources */,
@@ -837,6 +872,7 @@
 				C73622231A1A1953002A6B3A /* ParkReservationDetailsPopup.xib in Resources */,
 				C7E62DE71A1AECEA00C3416B /* menuMapOn.png in Resources */,
 				C72A635E1A1A0481006A8DF5 /* ParkResrvationListPopup.xib in Resources */,
+				C7136DF21A24AE8500D20AC6 /* calender_button@2x.png in Resources */,
 				C7E62DE61A1AECEA00C3416B /* menuCloseOn.png in Resources */,
 				C7E62DF41A1AF73B00C3416B /* menuUsers.png in Resources */,
 				C7FF21C91A1E567600BA8349 /* AddNewCar.xib in Resources */,
