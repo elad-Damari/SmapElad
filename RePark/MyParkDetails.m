@@ -36,6 +36,7 @@
 
 - (IBAction)cancelButton:(id)sender;
 
+- (IBAction)editParkButton:(id)sender;
 
 @end
 
@@ -61,6 +62,45 @@
     [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationSlideRightRight];
     
 }
+
+
+
+
+- (IBAction)editParkButton:(id)sender
+
+{
+
+    NSString *accessToken = [NSString stringWithFormat:@"%@",
+                             [[NSUserDefaults standardUserDefaults] objectForKey:kAccessToken]];
+    
+    
+    NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+    
+    [dic setObject:accessToken        forKey:kAccessToken];
+    
+    [dic setObject:kChangePark        forKey:kService];
+    
+   
+    // init dic with relevant parameters for request...
+
+    
+    // call server & gett respponse & alert if there is an error
+
+    
+    //init park data with response from server...
+    
+    NSMutableDictionary *parkData;
+    
+    [parkData setObject:@"עריכת פרטי חניה" forKey:@"editTitle"];
+    
+    [parkData setObject:@"רכבת חולון" forKey:kAddressID];
+    
+    [self.delegate popUp:self withParkData:parkData];
+ 
+}
+
+
+
 
 - (void) setViewsOnScreen
 

@@ -14,7 +14,11 @@
 @interface AddNewPark : UIViewController
 <UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
+
 @property  NSDictionary *dictionary;
+
+
+@property (weak, nonatomic) IBOutlet UILabel *mainTitle;
 
 @property (assign, nonatomic) id <MJPopUpControllerDelegate> delegate;
 

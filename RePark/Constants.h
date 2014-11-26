@@ -29,6 +29,7 @@ static NSString * const kAskForExtension       = @"askForExtension";
 static NSString * const kGetMyFavoriteParks    = @"getMyFavoriteParks";
 static NSString * const kGetMyCars             = @"getMyCars";
 static NSString * const kGetMyParks            = @"getMyParks";
+static NSString * const kChangePark            = @"changePark";
 
 
 #pragma mark - Server Keys For Requests

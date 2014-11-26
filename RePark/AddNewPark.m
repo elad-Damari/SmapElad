@@ -42,7 +42,6 @@
 @property (strong, nonatomic) IBOutlet     UIView *mainView;
 
 
-
 @property (weak, nonatomic) IBOutlet UITextField  *parkAddressLabel;
 
 @property (weak, nonatomic) IBOutlet UITextField  *pricePerHour;
@@ -156,6 +155,7 @@
 - (void) setViewsOnScreen
 {
 
+    NSLog(@"\n ** set views on screen...");
 
     [_timesPickerView setTransform:CGAffineTransformMakeScale(1.0,0.7)];
     
@@ -227,6 +227,13 @@
     if (_dictionary)
         
     {
+        
+        NSLog(@"\n dictionary isnt nil...");
+        
+        if ([_dictionary objectForKey:@"editTitle"])
+        {
+            _mainTitle.text = [_dictionary objectForKey:@"editTitle"];
+        }
         
         if ([_dictionary objectForKey:@"parkSlots"])
         {

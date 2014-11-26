@@ -24,6 +24,7 @@
                 <outlet property="getTopTitle" destination="z4z-7y-Ctw" id="vHY-uj-Q7N"/>
                 <outlet property="getTypeTitle" destination="OCk-OA-5Gf" id="hfH-Dr-dYo"/>
                 <outlet property="imageView" destination="PQM-IF-wsM" id="siP-aa-3hq"/>
+                <outlet property="mainTitle" destination="t3B-sU-aMH" id="sHa-qf-XIG"/>
                 <outlet property="mainView" destination="i5M-Pr-FkT" id="gAr-7m-4O6"/>
                 <outlet property="parkAddressLabel" destination="KuO-l2-NMd" id="LsA-FZ-yc2"/>
                 <outlet property="pickerChooseLabel" destination="2YF-7p-kJv" id="r1h-8h-Moc"/>

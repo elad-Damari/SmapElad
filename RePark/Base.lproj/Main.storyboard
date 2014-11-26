@@ -2536,7 +2536,7 @@
                                 </state>
                             </button>
                             <view contentMode="scaleToFill" id="F5E-Bo-J9R">
-                                <rect key="frame" x="0.0" y="550" width="320" height="70"/>
+                                <rect key="frame" x="0.0" y="548" width="320" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slider.png" id="eF3-qL-1Ns">
@@ -2555,7 +2555,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="oQr-ht-Uj4">
-                                        <rect key="frame" x="67" y="31" width="31" height="31"/>
+                                        <rect key="frame" x="92" y="31" width="31" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" backgroundImage="system_button.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -2565,33 +2565,13 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="f1k-P7-du3">
-                                        <rect key="frame" x="114" y="31" width="31" height="31"/>
+                                        <rect key="frame" x="199" y="31" width="31" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" backgroundImage="history_button.png">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="openHistory:" destination="9eO-eW-Nm7" eventType="touchUpInside" id="QwA-SP-js7"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="I5h-IW-4a0">
-                                        <rect key="frame" x="165" y="31" width="31" height="31"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" backgroundImage="alert_button.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="openAlert:" destination="9eO-eW-Nm7" eventType="touchUpInside" id="IHL-vy-wlW"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Ncf-g3-dbV">
-                                        <rect key="frame" x="215" y="31" width="31" height="31"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" backgroundImage="calender_button.png">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="openCalender:" destination="9eO-eW-Nm7" eventType="touchUpInside" id="XpM-71-cI3"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jdr-9G-Io8">
@@ -2622,6 +2602,7 @@
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="bottomBackground" destination="eF3-qL-1Ns" id="k8i-ZZ-5wU"/>
                         <outlet property="bottomMenu" destination="F5E-Bo-J9R" id="Yd9-7e-GFZ"/>
                         <outlet property="mapView" destination="Kbn-Wl-WDV" id="Thc-Aq-pSE"/>
                         <outlet property="searchParkByAddressField" destination="EdK-tk-zpv" id="WMn-yk-867"/>
@@ -2636,8 +2617,6 @@
     </scenes>
     <resources>
         <image name="Parking.png" width="320" height="480"/>
-        <image name="alert_button.png" width="33" height="32"/>
-        <image name="calender_button.png" width="31" height="32"/>
         <image name="history_button.png" width="26" height="32"/>
         <image name="logo.png" width="280" height="40"/>
         <image name="logout_button.png" width="31" height="31"/>

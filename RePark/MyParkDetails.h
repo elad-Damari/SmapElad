@@ -23,3 +23,15 @@
 @property (assign, nonatomic) id <MJPopUpControllerDelegate> delegate;
 
 @end
+
+
+
+
+
+@protocol MJPopUpControllerDelegate <NSObject>
+
+@optional
+
+- (void)popUp:(MyParkDetails *)popUpController withParkData: (NSDictionary *) data;
+
+@end

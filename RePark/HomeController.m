@@ -31,6 +31,10 @@
 #import "AddNewPark.h"
 #import "AddNewCar.h"
 
+#import "MyProfilePopup.h"
+#import "SystemProperties.h"
+#import "ContactUs.h"
+
 
 //6. import relevant class .h file. this is the class  you want to popup .h file
 #import "ParkingSupportPopup.h"
@@ -73,6 +77,12 @@
     AddNewPark              *addNewPark;
     
     AddNewCar               *addNewCar;
+    
+    MyProfilePopup          *myProfilePopup;
+    
+    SystemProperties        *systemProperties;
+    
+    ContactUs               *contactUs;
     
     
     NSMutableDictionary     *parametersDictionary;
@@ -140,6 +150,7 @@
 
 - (IBAction)openProfile:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIImageView *bottomBackground;
 
 @end
 
@@ -457,8 +468,8 @@
     if (bottomMenu.frame.origin.y+ bottomMenu.frame.size.height > self.view.frame.size.height)
         // menu is hidden at bottom ...
     {
-        [UIView animateWithDuration:0.5
-                              delay:0.1
+        [UIView animateWithDuration:0.4
+                              delay:0
                             options: UIViewAnimationCurveEaseIn
                          animations:^
          {
@@ -471,13 +482,13 @@
     }
     else                                 // menu is already opne...
     {
-        [UIView animateWithDuration:0.5
-                              delay:0.1
+        [UIView animateWithDuration:0.4
+                              delay:0
                             options: UIViewAnimationCurveEaseIn
                          animations:^
          {
              [bottomMenu setFrame:
-              CGRectMake(0, self.view.frame.size.height-15, self.view.frame.size.width, 70)];
+              CGRectMake(0, self.view.frame.size.height-20, self.view.frame.size.width, 70)];
          }
                          completion:^(BOOL finished)
          {
@@ -491,18 +502,24 @@
 
 
 
-
+// nadav?
 - (IBAction)openLogout:(id)sender
 {
     
     NSLog(@"\n **** openLogout ");
+    PXAlertView *alert =[PXAlertView showAlertWithTitle:@"שים לב !"
+                                                message:@"מסך זה ממתין כרגע להטמעה"
+                                            cancelTitle:@"אישור"
+                                             completion:^(BOOL cancelled, NSInteger buttonIndex)
+                         {}];
+    [alert setCancelButtonBackgroundColor:[UIColor lightGrayColor]];
 }
 
 
 
 
 
-
+// not active for this version
 - (IBAction)openCalender:(id)sender
 {
     
@@ -513,9 +530,7 @@
 
 
 
-
-
-
+// not active for this version
 - (IBAction)openAlert:(id)sender
 {
     NSLog(@"\n **** openAlert ");
@@ -533,6 +548,12 @@
 
 {
     NSLog(@"\n **** openHistory ");
+    PXAlertView *alert =[PXAlertView showAlertWithTitle:@"שים לב !"
+                                                message:@"מסך זה נמצא כרגע בבניה"
+                                            cancelTitle:@"אישור"
+                                             completion:^(BOOL cancelled, NSInteger buttonIndex)
+                         {}];
+    [alert setCancelButtonBackgroundColor:[UIColor lightGrayColor]];
     
     
     
@@ -541,9 +562,12 @@
 - (IBAction)openSystem:(id)sender
 
 {
-    NSLog(@"\n **** openSystem ");
+
+    systemProperties          = [[SystemProperties alloc] init];
     
+    systemProperties.delegate = self;
     
+    [self presentPopupViewController:systemProperties animationType:MJPopupViewAnimationSlideRightRight];
     
 }
 
@@ -553,10 +577,12 @@
 - (IBAction)openProfile:(id)sender
 
 {
-    NSLog(@"\n **** openProfile ");
     
+    myProfilePopup          = [[MyProfilePopup alloc] init];
     
+    myProfilePopup.delegate = self;
     
+    [self presentPopupViewController:myProfilePopup animationType:MJPopupViewAnimationSlideRightRight];
     
 }
 
@@ -818,9 +844,63 @@
     
     addNewPark.delegate  = self;
     
+    if ([data objectForKey:@"editTitle"])
+    {
+        addNewPark.mainTitle.text = [data objectForKey:@"editTitle"];
+    }
+    
     addNewPark.dictionary = data;
     
     [self presentPopupViewController:addNewPark animationType:MJPopupViewAnimationSlideRightRight];
+    
+}
+
+
+
+
+
+
+- (void)popUpMyParks:(AddNewPark *)popUpController
+
+{
+    
+    [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationSlideLeftLeft];
+    
+    myParksList = [[MyParksList alloc] init];
+    
+    myParksList.delegate = self;
+    
+    [self presentPopupViewController:myParksList animationType:MJPopupViewAnimationSlideRightRight];
+    
+}
+
+
+- (void)popUpMyCars:(ShowMyCarsPopup *)popUpController
+
+{
+    
+    [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationSlideLeftLeft];
+    
+    showMyCarsPopup = [[ShowMyCarsPopup alloc] init];
+    
+    showMyCarsPopup.delegate = self;
+    
+    [self presentPopupViewController:showMyCarsPopup animationType:MJPopupViewAnimationSlideRightRight];
+    
+}
+
+
+- (void)popUpContactUs:(ContactUs *)popUpController
+
+{
+    
+    [self dismissPopupViewControllerWithanimationType:MJPopupViewAnimationSlideLeftLeft];
+    
+    contactUs = [[ContactUs alloc] init];
+    
+    contactUs.delegate = self;
+    
+    [self presentPopupViewController:contactUs animationType:MJPopupViewAnimationSlideRightRight];
     
 }
 
